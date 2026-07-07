@@ -31,6 +31,34 @@
   }
   .wrap{max-width:820px;margin:0 auto;padding:0 20px 80px;}
 
+  /* intro */
+  .intro{padding:44px 0 30px;border-bottom:1px solid var(--line-strong);}
+  .intro p{
+    margin:0 0 14px;
+    max-width:64ch;
+    color:var(--ink);
+    font-size:15.5px;
+    line-height:1.62;
+  }
+  .intro p:last-of-type{margin-bottom:22px;}
+  .intro-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Sora',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    color:#fff;
+    background:var(--seal);
+    border:1px solid var(--seal);
+    padding:11px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    transition:background .15s ease;
+  }
+  .intro-cta:hover{background:var(--seal-dark);border-color:var(--seal-dark);}
+  .intro-cta::after{content:'→';}
+
   /* header */
   header{padding:48px 0 28px;border-bottom:1px solid var(--line-strong);}
   .eyebrow{
@@ -224,7 +252,14 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="filters" style="padding-top:32px;">
+  <section class="intro">
+    <p>Conocé las principales medidas del proyecto de ley presentado por el Poder Ejecutivo, actualmente en discusión en el Parlamento.</p>
+    <p>La iniciativa reúne 240 artículos con propuestas orientadas a dinamizar la economía nacional mediante la eliminación de trabas burocráticas, la reducción de costos y el fomento de la inversión.</p>
+    <p>Para facilitar su consulta, el Ministerio de Economía y Finanzas desarrolló este interactivo, que organiza el contenido por temas y permite recorrer las principales iniciativas del proyecto de forma ágil.</p>
+    <a class="intro-cta" href="https://www.gub.uy/ministerio-economia-finanzas/comunicacion/noticias/proyecto-ley-competitividad-reduccion-del-costo-vida-ingresa-senado" target="_blank" rel="noopener">Accedé al articulado completo</a>
+  </section>
+
+  <div class="filters">
     <div class="filter-row">
       <p class="filter-label">Capítulo</p>
       <select class="cap-select" id="cap-select"></select>
@@ -243,7 +278,6 @@
   <div class="list" id="list"></div>
   <div class="empty" id="empty" style="display:none;">Ninguna propuesta coincide con esos filtros.</div>
 
-  <footer>Fuente: presentación técnica del proyecto de ley de Competitividad y Reducción del Costo de Vida.</footer>
 </div>
 
 <script>
@@ -251,7 +285,7 @@ const DATA = [
   {
     "norma": "Principios generales para la agilización de trámites",
     "bajada": "Se definen técnicas concretas para la aplicación en trámites.",
-    "descripcion": "Principios aplicables:\nProporcionalidad.\nGestión basada en riesgos.\nInteroperabilidad.\nSimplificación documental.\nPrevisibilidad.\nMecanismos agilizadores:\nDeclaración jurada.\n/nPlazos\nTrámite paralelo.\nSilencio positivo.\nReconocimiento de evaluaciones de conformidad.",
+    "descripcion": "Principios aplicables:\n•Proporcionalidad.\n•Gestión basada en riesgos.\n•Interoperabilidad.\n•Simplificación documental.\n•Previsibilidad.\nMecanismos agilizadores:\n•Declaración jurada.\n•Plazos\n•Trámite paralelo.\n•Silencio positivo.\n•Reconocimiento de evaluaciones de conformidad.",
     "articulos": "Arts. 1–4",
     "capitulo": "I",
     "area": "Desburocratización y digitalización",
@@ -260,7 +294,7 @@ const DATA = [
   {
     "norma": "Programa de Calidad Regulatoria y Agilización de Trámites",
     "bajada": "Los principios y técnicas requieren implementación con colaboración público - privada",
-    "descripcion": "A través del Programa de Calidad Regulatoria y agilización de Trámites se implementarán los mecanismos agilizadores en procedimientos concretos\nIdentificación de oportunidades\nRevisión y rediseño\nModificación normativa\nMedición del impacto\nNo se crea burocracia nueva, se coordina la implementación de las mejoras identificadas.",
+    "descripcion": "A través del Programa de Calidad Regulatoria y agilización de Trámites se implementarán los mecanismos agilizadores en procedimientos concretos\n•Identificación de oportunidades\n•Revisión y rediseño\n•Modificación normativa\n•Medición del impacto\n•No se crea burocracia nueva, se coordina la implementación de las mejoras identificadas.",
     "articulos": "Art. 5",
     "capitulo": "I",
     "area": "Modernización del Estado y simplificación regulatoria",
@@ -278,7 +312,7 @@ const DATA = [
   {
     "norma": "Centralización de Estados Financieros",
     "bajada": "La presentación de estados financieros ante la AIN produce efectos frente a toda la Administración.",
-    "descripcion": "Los estados financieros incorporados a la Central de Balances Electrónica producirán efectos frente a los organismos públicos. No podrán volver a requerirse salvo: disposición legal expresa; información insuficiente; necesidad de actualización.\nLa presentación de estados financieros ante la AIN produce efectos frente a toda la Administración.\nCuando un organismo necesite anticipadamente la información, ésta deberá presentarse únicamente ante la AIN.\nLa Auditoría Interna de la Nación definirá las condiciones técnicas de acceso, interoperabilidad y seguridad.\nLa información contable se presenta una única vez y puede reutilizarse por toda la Administración.",
+    "descripcion": "Los estados financieros incorporados a la Central de Balances Electrónica producirán efectos frente a los organismos públicos. No podrán volver a requerirse salvo: \n•disposición legal expresa \n•información insuficiente \n•necesidad de actualización.\nLa presentación de estados financieros ante la AIN produce efectos frente a toda la Administración.\nCuando un organismo necesite anticipadamente la información, ésta deberá presentarse únicamente ante la AIN.\nLa Auditoría Interna de la Nación definirá las condiciones técnicas de acceso, interoperabilidad y seguridad.\nLa información contable se presenta una única vez y puede reutilizarse por toda la Administración.",
     "articulos": "Art. 11",
     "capitulo": "I",
     "area": "Modernización del Estado y simplificación regulatoria",
@@ -314,7 +348,7 @@ const DATA = [
   {
     "norma": "Notariado electrónico y libros societarios digitales",
     "bajada": "Se promueve la transformación digital de la función notarial y de la documentación societaria.",
-    "descripcion": "Declara de interés nacional la incorporación progresiva del notariado electrónico;\nCrea un grupo de trabajo para proponer las adecuaciones normativas necesarias;\nReconoce la equivalencia funcional de la documentación notarial electrónica;\nHabilita la llevanza digital de libros societarios;\nPermite la firma electrónica de actas societarias.\nLa reforma incorpora herramientas digitales preservando la seguridad jurídica de la actuación notarial y societaria.",
+    "descripcion": "\n•Declara de interés nacional la incorporación progresiva del notariado electrónico;\n•Crea un grupo de trabajo para proponer las adecuaciones normativas necesarias;\n•Reconoce la equivalencia funcional de la documentación notarial electrónica;\n•Habilita la llevanza digital de libros societarios;\n•Permite la firma electrónica de actas societarias.\nLa reforma incorpora herramientas digitales preservando la seguridad jurídica de la actuación notarial y societaria.",
     "articulos": "Arts. 21-23",
     "capitulo": "I",
     "area": "Modernización del Estado y simplificación regulatoria",
@@ -350,7 +384,7 @@ const DATA = [
   {
     "norma": "Simplificación de trámites para el agro",
     "bajada": "Se incorporan mecanismos específicos de simplificación para distintos sectores de la actividad agropecuaria.",
-    "descripcion": "Sectores incluidos:\nProducción familiar\nFrutas y hortalizas\nCadena forestal\nInstituto Nacional de Carnes\nCompras públicas\nLas medidas incorporan simplificaciones específicas para producción familiar, cadenas agroindustriales y procedimientos administrativos sectoriales.",
+    "descripcion": "Sectores incluidos:\n• Producción familiar\n• Frutas y hortalizas\n• Cadena forestal\n• Instituto Nacional de Carnes\n• Compras públicas\n Las medidas incorporan simplificaciones específicas para producción familiar, cadenas agroindustriales y procedimientos administrativos sectoriales.",
     "articulos": "Arts. 37-45",
     "capitulo": "I",
     "area": "Modernización del Estado y simplificación regulatoria",
@@ -368,7 +402,7 @@ const DATA = [
   {
     "norma": "Industria de bebidas",
     "bajada": "Se eliminan requisitos que habían perdido utilidad regulatoria.",
-    "descripcion": "Art. 47: Se deroga el registro obligatorio de fabricantes de bebidas sin alcohol.\nArt. 48: Se elimina la prohibición legal de comercializar bebidas alcohólicas en envases superiores a un litro.\nLas restantes potestades regulatorias y sanitarias permanecen incambiadas.",
+    "descripcion": "• Art. 47: Se deroga el registro obligatorio de fabricantes de bebidas sin alcohol.\n• Art. 48: Se elimina la prohibición legal de comercializar bebidas alcohólicas en envases superiores a un litro.\nLas restantes potestades regulatorias y sanitarias permanecen incambiadas.",
     "articulos": "Art. 47-48",
     "capitulo": "I",
     "area": "Modernización del Estado y simplificación regulatoria",
@@ -395,7 +429,7 @@ const DATA = [
   {
     "norma": "Fortalecimiento institucional de la regulacion sanitaria",
     "bajada": "Se fortalece la regulación y la evaluación de tecnologías mediante organismos especializados",
-    "descripcion": "Agencia de Vigilancia Sanitaria del Uruguay (AVISU): Se incorporan: reactivos de diagnóstico, alimentos para propósitos médicos especiales, productos domisanitarios y precursores químicos.\nAgencia de Evaluación de Tecnologías Sanitarias del Uruguay (AETSU): Actualización de competencias. Nueva estructura institucional.\nUna regulación eficiente y ágil requiere instituciones profesionales. La reforma amplía la cobertura de la Agencia de vigilancia sanitaria y fortalece la evaluación de tecnologías sanitarias.",
+    "descripcion": "Agencia de Vigilancia Sanitaria del Uruguay (AVISU): Se incorporan: reactivos de diagnóstico, alimentos para propósitos médicos especiales, productos domisanitarios y precursores químicos.\nAgencia de Evaluación de Tecnologías Sanitarias del Uruguay (AETSU): \n• Actualización de competencias. \n• Nueva estructura institucional.\nUna regulación eficiente y ágil requiere instituciones profesionales. La reforma amplía la cobertura de la Agencia de vigilancia sanitaria y fortalece la evaluación de tecnologías sanitarias.",
     "articulos": "Arts. 62-69",
     "capitulo": "I",
     "area": "Modernización del Estado y simplificación regulatoria",
@@ -419,7 +453,7 @@ const DATA = [
     "area": "Modernización del Estado y simplificación regulatoria",
     "subtemas": ["ambiente", "agro"]
   },
-  {
+ /*  {
     "norma": "Derogación de restricciones históricas",
     "bajada": "Se eliminan restricciones comerciales que habían perdido vigencia.",
     "descripcion": "Se deroga la Ley Nº 10.057 del 1941.\nComo consecuencia: Desaparece la prohibición legal de apertura de carnicerías los domingos.\nLa actividad continuará sometida al resto de la normativa sanitaria, laboral y comercial aplicable.\nSe eliminan restricciones comerciales cuya justificación original dejó de existir.",
@@ -427,11 +461,11 @@ const DATA = [
     "capitulo": "I",
     "area": "Modernización del Estado y simplificación regulatoria",
     "subtemas": ["consumidores", "modernización"]
-  },
+  }, */
   {
     "norma": "Creación del Autodespacho Aduanero",
     "bajada": "Se habilita una modalida alternativa para que las empresas gestionen directamente sus operaciones aduaneras.",
-    "descripcion": "La reforma incorpora el Autodespacho Aduanero, permitiendo que personas físicas con actividad empresarial, personas jurídicas y sociedades de hecho puedan tramitar sus propias operaciones de importación y exportación.\nConstituye una alternativa regulada para empresas que cuentan con capacidad técnica suficiente para gestionar directamente sus operaciones aduaneras.\nPara ello: Se incorpora como excepción a la intervención preceptiva del Despachante de aduana; Se establecen requisitos de idoneidad técnica, solvencia y garantías para las empresas que se autodespachen; Se regula el registro de autodespacho y las responsabilidades, sanciones y causales de suspensión; Se mantiene un régimen equivalente de control por parte de la Dirección Nacional de Aduanas.",
+    "descripcion": "Se incorpora el Autodespacho Aduanero, permitiendo que personas físicas con actividad empresarial, personas jurídicas y sociedades de hecho puedan tramitar sus propias operaciones de importación y exportación.\nPara ello:\n•Se incorpora como excepción a la intervención preceptiva del Despachante de aduana; \n•Se establecen requisitos de idoneidad técnica, solvencia y garantías para las empresas que se autodespachen; \n•Se regula el registro de autodespacho y las responsabilidades, sanciones y causales de suspensión; \n•Se mantiene un régimen equivalente de control por parte de la Dirección Nacional de Aduanas.",
     "articulos": "Arts. 73-81",
     "capitulo": "II",
     "area": "Facilitación del comercio exterior",
@@ -770,9 +804,7 @@ function renderTemaChips(){
     const btn = document.createElement('button');
     const isActive = activeTemas.has(t);
     btn.className = 'chip tema' + (isActive ? ' active':'');
-    const newTemas = new Set(activeTemas);
-    const n = countFor({cap:activeCap, temas:isActive ? activeTemas : new Set([...activeTemas, t])});
-    btn.innerHTML = capitalizeFirst(t) + '<span class="count">'+ (isActive ? countFor({cap:activeCap,temas:activeTemas}) : n) +'</span>';
+    btn.textContent = capitalizeFirst(t);
     btn.onclick = () => {
       if(activeTemas.has(t)) activeTemas.delete(t); else activeTemas.add(t);
       render();
@@ -808,15 +840,18 @@ function formatDescripcion(text){
     }
   }
   lines.forEach(rawLine => {
-    if(rawLine.trim() === ''){
+    const trimmed = rawLine.trim();
+    if(trimmed === ''){
       flushList();
       return;
     }
-    if(/\s$/.test(rawLine)){
-      listBuffer.push(rawLine.trim());
+    if(trimmed.startsWith('•')){
+      listBuffer.push(trimmed.replace(/^•\s*/, ''));
+    } else if(/\s$/.test(rawLine)){
+      listBuffer.push(trimmed);
     } else {
       flushList();
-      out.push('<p>'+escapeHtml(rawLine.trim())+'</p>');
+      out.push('<p>'+escapeHtml(trimmed)+'</p>');
     }
   });
   flushList();
@@ -923,3 +958,4 @@ render();
 </script>
 </body>
 </html>
+
