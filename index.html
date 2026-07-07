@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ley de Competitividad — Propuestas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --paper-2:#F5F7FA;
+    --ink:#1B1F24;
+    --ink-soft:#5B6670;
+    --seal:#25418E;
+    --seal-dark:#162755;
+    --seal-soft:#E2E9F1;
+    --ochre:#DAAA00;
+    --ochre-soft:#FBF1D9;
+    --line:#DDE2E8;
+    --line-strong:#B7C0CA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Sora',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:0 20px 80px;}
+
+  /* header */
+  header{padding:48px 0 28px;border-bottom:1px solid var(--line-strong);}
+  .eyebrow{
+    font-family:'Sora',sans-serif;
+    font-weight:600;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--seal);
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:'Sora',sans-serif;
+    font-weight:600;
+    font-size:clamp(28px,4.4vw,40px);
+    line-height:1.08;
+    margin:0 0 12px;
+    letter-spacing:-0.01em;
+  }
+  header p.sub{
+    margin:0;
+    max-width:56ch;
+    color:var(--ink-soft);
+    font-size:15px;
+    line-height:1.55;
+  }
+
+  /* filters */
+  .filters{
+    position:sticky;top:0;z-index:5;
+    background:var(--paper);
+    padding:18px 0 16px;
+    border-bottom:1px solid var(--line);
+  }
+  .filter-row{margin-bottom:12px;}
+  .filter-row:last-child{margin-bottom:0;}
+  .filter-label{
+    font-family:'Sora',sans-serif;
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+  }
+  .chips{display:flex;flex-wrap:wrap;gap:7px;}
+  .chip{
+    appearance:none;border:1px solid var(--line-strong);background:var(--paper-2);
+    color:var(--ink);
+    font-family:'Sora',sans-serif;
+    font-size:13px;
+    padding:6px 12px;
+    border-radius:100px;
+    cursor:pointer;
+    line-height:1.3;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .chip:hover{border-color:var(--seal);}
+  .chip.cap.active{background:var(--seal);border-color:var(--seal);color:#fff;}
+  .chip.tema.active{background:var(--ochre);border-color:var(--ochre);color:#fff;}
+  .chip .count{opacity:.6;font-size:11px;margin-left:5px;}
+  .chip.active .count{opacity:.85;}
+
+  .cap-select{
+    appearance:none;-webkit-appearance:none;
+    font-family:'Sora',sans-serif;
+    font-size:14px;
+    color:var(--ink);
+    background:var(--paper-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%2325418E' stroke-width='2'%3E%3Cpath d='M5 7l5 6 5-6'/%3E%3C/svg%3E") no-repeat right 12px center;
+    background-size:14px;
+    border:1px solid var(--line-strong);
+    border-radius:8px;
+    padding:9px 34px 9px 14px;
+    cursor:pointer;
+    min-width:220px;
+  }
+  .cap-select:hover{border-color:var(--seal);}
+  .cap-select:focus{outline:2px solid var(--seal);outline-offset:1px;}
+
+  .results-line{
+    font-family:'Sora',sans-serif;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    margin:16px 2px 18px;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .clear-btn{
+    font-family:'Sora',sans-serif;
+    font-size:11px;background:none;border:none;color:var(--seal);cursor:pointer;
+    text-decoration:underline;padding:0;
+  }
+  .clear-btn:disabled{color:var(--line-strong);cursor:default;text-decoration:none;}
+
+  /* cards */
+  .list{display:flex;flex-direction:column;gap:0;}
+  .card{
+    border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .card-body{flex:1;min-width:0;}
+  .meta-line{
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .area-tag{
+    font-family:'Sora',sans-serif;
+    font-weight:600;
+    font-size:12px;letter-spacing:.01em;
+    color:var(--seal);
+    margin:0;
+  }
+  .norma{
+    font-family:'Sora',sans-serif;font-weight:600;font-size:19px;line-height:1.28;
+    margin:0 0 4px;letter-spacing:-0.005em;
+  }
+  .bajada{margin:0 0 10px;color:var(--ink-soft);font-size:14.5px;line-height:1.5;}
+  .subtemas{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
+  .tema-tag{
+    font-family:'Sora',sans-serif;font-size:10.5px;
+    border:1px solid var(--line-strong);
+    padding:3px 8px;border-radius:100px;
+    color:var(--ink-soft);
+    background:var(--paper-2);
+    cursor:pointer;
+  }
+  .tema-tag:hover{border-color:var(--ochre);color:var(--ochre);}
+  .tema-tag.active{background:var(--ochre-soft);border-color:var(--ochre);color:var(--ochre);}
+
+  .toggle-btn{
+    margin-top:12px;
+    font-family:'Sora',sans-serif;
+    font-size:11.5px;
+    background:none;border:1px solid var(--line-strong);
+    padding:7px 12px;border-radius:6px;
+    color:var(--ink);cursor:pointer;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .toggle-btn:hover{border-color:var(--seal);color:var(--seal);}
+  .toggle-btn .arrow{transition:transform .18s ease;}
+  .card.open .toggle-btn .arrow{transform:rotate(180deg);}
+
+  .detail{
+    display:none;
+    margin-top:14px;
+    padding:16px 18px;
+    background:var(--seal-soft);
+    border-left:2px solid var(--seal);
+    border-radius:0 6px 6px 0;
+  }
+  .card.open .detail{display:block;}
+  .detail p{
+    margin:0 0 12px;font-size:14px;line-height:1.62;color:var(--ink);
+  }
+  .detail p:last-child{margin-bottom:0;}
+  .desc-block ul{
+    margin:0 0 12px;padding:0;list-style:none;
+  }
+  .desc-block ul:last-child{margin-bottom:0;}
+  .desc-block li{
+    position:relative;
+    padding-left:16px;
+    margin-bottom:6px;
+    font-size:14px;line-height:1.55;color:var(--ink);
+  }
+  .desc-block li::before{
+    content:'';
+    position:absolute;left:0;top:8px;
+    width:5px;height:5px;border-radius:50%;
+    background:var(--ochre);
+  }
+  .desc-block li:last-child{margin-bottom:0;}
+  .detail .arts{
+    font-family:'Sora',sans-serif;font-size:11.5px;color:var(--seal);
+    text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:block;
+  }
+
+  .empty{
+    padding:60px 0;text-align:center;color:var(--ink-soft);font-size:14px;
+    font-family:'Sora',sans-serif;
+  }
+
+  footer{
+    margin-top:36px;padding-top:20px;border-top:1px solid var(--line);
+    font-family:'Sora',sans-serif;font-size:11px;color:var(--ink-soft);
+  }
+
+  @media (max-width:520px){
+    .norma{font-size:17px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="filters" style="padding-top:32px;">
+    <div class="filter-row">
+      <p class="filter-label">Capítulo</p>
+      <select class="cap-select" id="cap-select"></select>
+    </div>
+    <div class="filter-row">
+      <p class="filter-label">Tema</p>
+      <div class="chips" id="tema-chips"></div>
+    </div>
+  </div>
+
+  <div class="results-line">
+    <span id="results-count"></span>
+    <button class="clear-btn" id="clear-btn">limpiar filtros</button>
+  </div>
+
+  <div class="list" id="list"></div>
+  <div class="empty" id="empty" style="display:none;">Ninguna propuesta coincide con esos filtros.</div>
+
+  <footer>Fuente: presentación técnica del proyecto de ley de Competitividad y Reducción del Costo de Vida.</footer>
+</div>
+
+<script>
+const DATA = [
+  {
+    "norma": "Principios generales para la agilización de trámites",
+    "bajada": "Se definen técnicas concretas para la aplicación en trámites.",
+    "descripcion": "Principios aplicables:\nProporcionalidad.\nGestión basada en riesgos.\nInteroperabilidad.\nSimplificación documental.\nPrevisibilidad.\nMecanismos agilizadores:\nDeclaración jurada.\n/nPlazos\nTrámite paralelo.\nSilencio positivo.\nReconocimiento de evaluaciones de conformidad.",
+    "articulos": "Arts. 1–4",
+    "capitulo": "I",
+    "area": "Desburocratización y digitalización",
+    "subtemas": ["salud", "modernización"]
+  },
+  {
+    "norma": "Programa de Calidad Regulatoria y Agilización de Trámites",
+    "bajada": "Los principios y técnicas requieren implementación con colaboración público - privada",
+    "descripcion": "A través del Programa de Calidad Regulatoria y agilización de Trámites se implementarán los mecanismos agilizadores en procedimientos concretos\nIdentificación de oportunidades\nRevisión y rediseño\nModificación normativa\nMedición del impacto\nNo se crea burocracia nueva, se coordina la implementación de las mejoras identificadas.",
+    "articulos": "Art. 5",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["modernización"]
+  },
+  {
+    "norma": "Registro Único de Apoderados y Representantes",
+    "bajada": "Se centraliza la acreditación de representación para trámites ante el Estado.",
+    "descripcion": "Se crea el RUAR en el ámbito de la Dirección General de Registro. La inscripción permitirá acreditar representación frente a los organismos comprendidos.\nSe centraliza la acreditación de representación para trámites ante el Estado.\nLas entidades públicas deberán consultar el Registro antes de requerir nuevamente la documentación correspondiente.\nLos representantes deberán mantener actualizada la información registrada\nLa representación jurídica pasa a acreditarse una sola vez y tiene validez permanente",
+    "articulos": "Art. 10",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["modernización", "menos papel"]
+  },
+  {
+    "norma": "Centralización de Estados Financieros",
+    "bajada": "La presentación de estados financieros ante la AIN produce efectos frente a toda la Administración.",
+    "descripcion": "Los estados financieros incorporados a la Central de Balances Electrónica producirán efectos frente a los organismos públicos. No podrán volver a requerirse salvo: disposición legal expresa; información insuficiente; necesidad de actualización.\nLa presentación de estados financieros ante la AIN produce efectos frente a toda la Administración.\nCuando un organismo necesite anticipadamente la información, ésta deberá presentarse únicamente ante la AIN.\nLa Auditoría Interna de la Nación definirá las condiciones técnicas de acceso, interoperabilidad y seguridad.\nLa información contable se presenta una única vez y puede reutilizarse por toda la Administración.",
+    "articulos": "Art. 11",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["modernización", "interoperabilidad", "innovación"]
+  },
+  {
+    "norma": "Ventanilla Única Marítima",
+    "bajada": "Se crea una plataforma única para la gestión electrónica de los trámites marítimos.",
+    "descripcion": "Se crea la Ventanilla Única Marítima (VUM) para los trámites asociados al arribo, permanencia y salida de buques. La plataforma se basará en la experiencia técnica de la VUCE, que ha demostrado ser muy exitosa para la agilización y reducción de costos de trámites en el comercio exterior\nSe crea una plataforma única para la gestión electrónica de los trámites marítimos.\nLos documentos y actuaciones electrónicas gestionadas mediante la VUM tendrán plena validez jurídica.\nSu incorporación será gradual conforme al cronograma de implementación.\nLos organismos participantes mantienen íntegramente sus competencias de control, fiscalización y autorización.",
+    "articulos": "Arts. 12-18",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["interoperabilidad", "comercio exterior"]
+  },
+  {
+    "norma": "Interoperabilidad para evaluación del riesgo crediticio",
+    "bajada": "Se habilita el acceso a información pública para mejorar la evaluación crediticia con garantías de protección de datos.",
+    "descripcion": "Las entidades supervisadas por el BCU podrán acceder, mediante interoperabilidad, a información para una evaluación más completa de la capacidad de pago de los solicitantes. Se habilita el acceso a información pública para mejorar la evaluación crediticia con garantías de protección de datos.\nEl consentimiento informado de los solicitantes garantiza el uso adecuado.\nLas entidades deberán acreditar cumplimiento de estándares regulatorios y éticos en uso de datos personales\nLa interoperabilidad permite un uso más eficiente de la información pública, preservando las garantías de protección de datos personales.",
+    "articulos": "Art. 19",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["modernización", "interoperabilidad", "innovación"]
+  },
+  {
+    "norma": "Sistema para la cadena cárnica",
+    "bajada": "Se crea una plataforma digital para integrar toda la información requerida para la cadena cárnica.",
+    "descripcion": "El Sistema de Registro y Gestión Comercial y Certificación (SRGCC), que funcionará en el ámbito del MGAP, integrará digitalmente:\n• registros de operadores;\n• certificaciones sanitarias;\n• documentación comercial;\n• información de trazabilidad;\n• comercio exterior.",
+    "articulos": "Art. 20",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["agro", "modernización", "interoperabilidad"]
+  },
+  {
+    "norma": "Notariado electrónico y libros societarios digitales",
+    "bajada": "Se promueve la transformación digital de la función notarial y de la documentación societaria.",
+    "descripcion": "Declara de interés nacional la incorporación progresiva del notariado electrónico;\nCrea un grupo de trabajo para proponer las adecuaciones normativas necesarias;\nReconoce la equivalencia funcional de la documentación notarial electrónica;\nHabilita la llevanza digital de libros societarios;\nPermite la firma electrónica de actas societarias.\nLa reforma incorpora herramientas digitales preservando la seguridad jurídica de la actuación notarial y societaria.",
+    "articulos": "Arts. 21-23",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["modernización", "menos papel"]
+  },
+  {
+    "norma": "Interoperabilidad entre plataformas públicas",
+    "bajada": "Se profundiza la interoperabilidad para evitar requerimientos reiterados de información.",
+    "descripcion": "RUNAEV: No podrá requerirse información que está en el RUNAEV. Participación en programa de agilización de trámites.\nIMEBA: Digitalización del acceso a créditos fiscales.\nConsulado Digital: Digitalización de trámites consulares.",
+    "articulos": "Arts. 24-28",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["interoperabilidad", "modernización", "menos papel", "agro"]
+  },
+  {
+    "norma": "Modernización de los registros sanitarios, fitosanitarios, técnicos y ambientales",
+    "bajada": "Se simplifican los procedimientos de registro manteniendo íntegramente los estándares de protección sanitaria, técnica y ambiental.",
+    "descripcion": "Cambia procedimientos aplicables a estos productos mediante tres medidas principales:\n• Vigencia mínima de 10 años, con excepciones cuando el riesgo regulatorio lo justifique.\n• Renovación simplificada mediante declaración jurada cuando no existan cambios en las condiciones que dieron origen al registro.\n• Validación digital de certificados emitidos por autoridades extranjeras: elimina exigencia de apostillado o legalización cuando su autenticidad pueda verificarse.\nReduce costos y tiempos de tramitación, permite concentrar los recursos públicos en el control de los productos de mayor riesgo, sin disminuir los estándares sanitarios, técnicos o ambientales.",
+    "articulos": "Arts. 29-31",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["salud", "ambiente", "modernización"]
+  },
+  {
+    "norma": "Modernización del Sistema Nacional de Bioseguridad",
+    "bajada": "Para facilitar la incorporación responsable de nuevas tecnologías, manteniendo íntegramente los estándares nacionales de evaluación.",
+    "descripcion": "Acceso de desarrolladores extranjeros (Arts. 33-34):\n• Agilización para operadores de países con cooperación\n• Posibilidad de reutilizar información validada\nAmpliación de productos (Art. 35):\n• Microorganismos\n• Animales genéticamente modificados\nLa reforma reduce barreras administrativas, fortalece la capacidad regulatoria del país y facilita la incorporación responsable de innovación biotecnológica al sector agropecuario.",
+    "articulos": "Arts. 33-35",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["modernización", "innovación", "salud"]
+  },
+  {
+    "norma": "Simplificación de trámites para el agro",
+    "bajada": "Se incorporan mecanismos específicos de simplificación para distintos sectores de la actividad agropecuaria.",
+    "descripcion": "Sectores incluidos:\nProducción familiar\nFrutas y hortalizas\nCadena forestal\nInstituto Nacional de Carnes\nCompras públicas\nLas medidas incorporan simplificaciones específicas para producción familiar, cadenas agroindustriales y procedimientos administrativos sectoriales.",
+    "articulos": "Arts. 37-45",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["agro", "modernización", "ambiente"]
+  },
+  {
+    "norma": "Industria proveedora de la construcción",
+    "bajada": "Se actualiza el régimen de aportación aplicable a actividades proveedoras especializadas.",
+    "descripcion": "Se ajusta el régimen vigente para simplificar los trámites que las industrias proveedoras de la construcción deben hacer para aportar por el régimen de Industria y Comercio.\nLa reforma sustituye un esquema basado en excepciones caso a caso por reglas generales más claras.\nNo modifica el régimen general aplicable a la actividad constructiva propiamente dicha.\nLa reforma brinda mayor certeza sobre el régimen de aportación aplicable a actividades proveedoras especializadas y reduce los trámites que deben hacer.",
+    "articulos": "Art. 46",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["construcción", "modernización"]
+  },
+  {
+    "norma": "Industria de bebidas",
+    "bajada": "Se eliminan requisitos que habían perdido utilidad regulatoria.",
+    "descripcion": "Art. 47: Se deroga el registro obligatorio de fabricantes de bebidas sin alcohol.\nArt. 48: Se elimina la prohibición legal de comercializar bebidas alcohólicas en envases superiores a un litro.\nLas restantes potestades regulatorias y sanitarias permanecen incambiadas.",
+    "articulos": "Art. 47-48",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["modernización", "consumidores"]
+  },
+  {
+    "norma": "Modernización del Código de Minería",
+    "bajada": "Se actualizan procedimientos administrativos en distintas etapas de la actividad minera.",
+    "descripcion": "Art. 49: Actualización del régimen de arrendamiento de derechos mineros.\nArt. 50: Ajustes al régimen de servidumbres e indemnizaciones.\nArt. 51: Simplificación de autorizaciones previas.\nArt. 52: Flexibilización de informes periódicos de exploración.\nArt. 53: Adecuación del régimen de inactividad.\nArt. 54: Continuidad de los derechos mientras se tramita la concesión de explotación.\nLas modificaciones buscan dotar de mayor previsibilidad y continuidad a los procedimientos.",
+    "articulos": "Art. 49-54",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["minería", "modernización"]
+  },
+  {
+    "norma": "Productos de salud",
+    "bajada": "Se simplifican procedimientos administrativos preservando íntegramente los estándares sanitarios",
+    "descripcion": "Art. 55: Cosméticos: Reconocimiento de menor riesgo que guiará las exigencias técnicas y la fiscalización\nArt. 56: Trámite paralelo de habilitación de depósito y obtención de registros.\nArt. 57: Extiende a diez años habilitaciones de empresas\nArt. 58: Modificaciones de registros. Declaración jurada con silencio positivo para cambios que no alteren la identidad del producto\nArt. 59: Tecnología médica. Alternativas para Certificado de Libre Venta (CLV)\nArt. 60: Eliminación de traducciones para documentos emitidos en inglés o portugués\nArt. 61: CLV único para productos multiplanta",
+    "articulos": "Art. 55-61",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["salud", "modernización"]
+  },
+  {
+    "norma": "Fortalecimiento institucional de la regulacion sanitaria",
+    "bajada": "Se fortalece la regulación y la evaluación de tecnologías mediante organismos especializados",
+    "descripcion": "Agencia de Vigilancia Sanitaria del Uruguay (AVISU): Se incorporan: reactivos de diagnóstico, alimentos para propósitos médicos especiales, productos domisanitarios y precursores químicos.\nAgencia de Evaluación de Tecnologías Sanitarias del Uruguay (AETSU): Actualización de competencias. Nueva estructura institucional.\nUna regulación eficiente y ágil requiere instituciones profesionales. La reforma amplía la cobertura de la Agencia de vigilancia sanitaria y fortalece la evaluación de tecnologías sanitarias.",
+    "articulos": "Arts. 62-69",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["salud", "modernización"]
+  },
+  {
+    "norma": "Agilización del arbitraje comercial",
+    "bajada": "Se incorporan alternativas especializadas para el cumplimiento de la conciliación previa en materia comercial.",
+    "descripcion": "Se ajusta el Código General del Proceso. En los procesos ordinarios comerciales entre personas jurídicas:\n• La conciliación previa podrá cumplirse ante un Centro de Mediación y Arbitraje establecido en el país\nMecanismos especializados para facilitar la resolución de controversias comerciales generan mejor clima de negocios",
+    "articulos": "Art. 70",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["comercio exterior", "modernización"]
+  },
+  {
+    "norma": "Ordenamiento territorial y autorizaciones ambientales",
+    "bajada": "Se precisan los aspectos territoriales aplicables durante la Autorización Ambiental Previa.",
+    "descripcion": "Los aspectos de ordenamiento territorial que deberán considerarse para la Autorización Ambiental Previa únicamente son:\n• la categorización del suelo;\n• las restricciones de uso;\n• los usos admitidos.\nLa reforma delimita el alcance del análisis territorial dentro del procedimiento ambiental, preservando los instrumentos de ordenamiento territorial. Esto agiliza inversiones sin reducir estándares técnicos",
+    "articulos": "Art. 71",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["ambiente", "agro"]
+  },
+  {
+    "norma": "Derogación de restricciones históricas",
+    "bajada": "Se eliminan restricciones comerciales que habían perdido vigencia.",
+    "descripcion": "Se deroga la Ley Nº 10.057 del 1941.\nComo consecuencia: Desaparece la prohibición legal de apertura de carnicerías los domingos.\nLa actividad continuará sometida al resto de la normativa sanitaria, laboral y comercial aplicable.\nSe eliminan restricciones comerciales cuya justificación original dejó de existir.",
+    "articulos": "Art. 72",
+    "capitulo": "I",
+    "area": "Modernización del Estado y simplificación regulatoria",
+    "subtemas": ["consumidores", "modernización"]
+  },
+  {
+    "norma": "Creación del Autodespacho Aduanero",
+    "bajada": "Se habilita una modalida alternativa para que las empresas gestionen directamente sus operaciones aduaneras.",
+    "descripcion": "La reforma incorpora el Autodespacho Aduanero, permitiendo que personas físicas con actividad empresarial, personas jurídicas y sociedades de hecho puedan tramitar sus propias operaciones de importación y exportación.\nConstituye una alternativa regulada para empresas que cuentan con capacidad técnica suficiente para gestionar directamente sus operaciones aduaneras.\nPara ello: Se incorpora como excepción a la intervención preceptiva del Despachante de aduana; Se establecen requisitos de idoneidad técnica, solvencia y garantías para las empresas que se autodespachen; Se regula el registro de autodespacho y las responsabilidades, sanciones y causales de suspensión; Se mantiene un régimen equivalente de control por parte de la Dirección Nacional de Aduanas.",
+    "articulos": "Arts. 73-81",
+    "capitulo": "II",
+    "area": "Facilitación del comercio exterior",
+    "subtemas": ["comercio exterior"]
+  },
+  {
+    "norma": "Revisión de tasas y eliminación de detracciones",
+    "bajada": "Se incorporan principios para reducir costos asociados al comercio exterior.",
+    "descripcion": "Programa de revisión de tasas:\n• Las tasas y cargas vinculadas al comercio exterior deberán guardar relación con el costo aproximado del servicio prestado.\n• Se dispone una revisión integral para reducir su número, simplificar su estructura y mejorar su transparencia.\n• Toda nueva tasa deberá publicarse con información detallada sobre su fundamento, monto y modalidad de pago.\nEliminación de detracciones:\n• Se elimina la facultad del Poder Ejecutivo para establecer impuestos a las exportaciones.\nLas reformas procuran que los costos administrativos asociados al comercio exterior respondan exclusivamente a servicios efectivamente prestados.",
+    "articulos": "Arts. 82-83",
+    "capitulo": "II",
+    "area": "Facilitación del comercio exterior",
+    "subtemas": ["comercio exterior"]
+  },
+   
+  {
+    "norma": "Gestión basada en análisis de riesgo",
+    "bajada": "Se fortalece un modelo de control selectivo basado en análisis de riesgo.",
+    "descripcion": "La reforma incorpora tres instrumentos:\nCanal rojo: La asignación de canales de revisión aduanera deberá realizarse exclusivamente en función del análisis de riesgo.\nGestión diferencial para alimentos y bebidas: LATU podrá establecer canales preferenciales para empresas con antecedentes favorables de cumplimiento y adecuados sistemas de control.\nReconocimiento de certificaciones: El Poder Ejecutivo podrá reconocer certificaciones, registros y evaluaciones emitidas por autoridades extranjeras de referencia. Se habilitan mecanismos alternativos de acreditación y controles posteriores basados en riesgo.\nLos recursos de control se concentran en las operaciones de mayor riesgo, facilitando aquellas con mejores antecedentes de cumplimiento.",
+    "articulos": "Arts. 84-86",
+    "capitulo": "II",
+    "area": "Facilitación del comercio exterior",
+    "subtemas": ["comercio exterior"]
+  },
+  {
+    "norma": "Agilización de procedimientos aduaneros",
+    "bajada": "Se simplifican distintos procedimientos vinculados a la gestión tributaria y aduanera. Algunas medidas instrumentan anuncios de simplificación realizados en marzo.",
+    "descripcion": "Medidas:\n• Eliminación de la intervención previa de DGI para mercadería exportada que retorna;\n• Ampliación del régimen de autorevisión voluntaria;\n• Declaración de prescripción de oficio por parte de la DNA;\n• Implementación del pago diferido de tributos para operaciones de importación definitiva: régimen de mora y posibilidad de exigir garantías\nLa reforma simplifica procedimientos y mejora los mecanismos de cumplimiento voluntario dentro del sistema aduanero.",
+    "articulos": "Arts. 87-91",
+    "capitulo": "II",
+    "area": "Facilitación del comercio exterior",
+    "subtemas": ["comercio exterior", "modernización"]
+  },
+  {
+    "norma": "Desempapelamiento del comercio exterior",
+    "bajada": "Se consolida la utilización exclusiva de documentación electrónica en las operaciones aduaneras.",
+    "descripcion": "\n• Presentación electrónica de la documentación complementaria;\n• Digitalización de documentos originalmente emitidos en papel;\n• Plena validez jurídica de la documentación electrónica;\n• Archivo exclusivamente electrónico de los antecedentes aduaneros;\n• Posibilidad de destrucción de documentación física una vez digitalizada conforme a la reglamentación.\nLa documentación electrónica pasa a constituir el soporte principal de las operaciones de comercio exterior.",
+    "articulos": "Arts. 92-93",
+    "capitulo": "II",
+    "area": "Facilitación del comercio exterior",
+    "subtemas": ["modernización", "menos papel", "comercio exterior"]
+  },
+  {
+    "norma": "Facilitación para sectores específicos",
+    "bajada": "Se incorporan medidas puntuales para mejorar la competitividad preservando objetivos de interés público",
+    "descripcion": "Vehículos utilitarios usados: Se habilita la importación de determinadas categorías de vehículos pesados usados, manteniendo requisitos de seguridad y emisiones.\nPrototipado e innovación: Se amplía el régimen promocional para actividades de prototipado, incorporando nuevos bienes\nTrabajo forzoso: Se establece un marco para impedir la importación de bienes producidos mediante trabajo forzoso u obligatorio, incluido el trabajo infantil forzoso.\nLa facilitación del comercio exterior se complementa con instrumentos que promueven la innovación y preservan estándares internacionales de seguridad y derechos humanos.",
+    "articulos": "Arts. 94-96",
+    "capitulo": "II",
+    "area": "Facilitación del comercio exterior",
+    "subtemas": ["innovación", "comercio exterior"]
+  },
+  {
+    "norma": "Creación de la nueva Comisión de Promoción y Defensa de la Competencia",
+    "bajada": "Se transforma la actual Comisión en un servicio descentralizado con mayor autonomía institucional.",
+    "descripcion": "Crea la Comisión de Promoción y Defensa de la Competencia (COPRODEC) como Servicio Descentralizado.\nLe otorga personalidad jurídica y autonomía técnica.\nFortalece su independencia institucional.\nAdecua su diseño a las mejores prácticas internacionales en materia de política de competencia.\nNueva estructura orgánica",
+    "articulos": "Arts. 97-98",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia", "consumidores"]
+  },
+  {
+    "norma": "Gobierno de la COPRODEC",
+    "bajada": "Se establece una nueva estructura de gobierno para fortalecer la independencia y profesionalización de la autoridad de competencia.",
+    "descripcion": "\n• Directorio integrado por tres miembros.\n• Designación mediante procedimiento público con Comité de Selección y venia del Senado.\n• Requisitos de experiencia, idoneidad e independencia.\n• Régimen de incompatibilidades.\n• Reglas de funcionamiento y adopción de decisiones.",
+    "articulos": "Arts. 99-103",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia", "consumidores"]
+  },
+  {
+    "norma": "Funciones de la COPRODEC",
+    "bajada": "Se fortalecen las funciones de promoción y defensa de la competencia.",
+    "descripcion": "Funciones principales:\n• Realizar estudios de mercado.\n• Emitir recomendaciones sobre regulaciones que afecten la competencia.\n• Elaborar guías y criterios técnicos.\n• Desarrollar acciones de abogacía de la competencia.\n• Celebrar convenios de cooperación.\n• Promover actividades de difusión y capacitación.",
+    "articulos": "Arts. 104-106",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia", "consumidores"]
+  },
+  {
+    "norma": "Transición hacia la nueva institucionalidad",
+    "bajada": "Se regula el pasaje desde la actual Comisión hacia el nuevo servicio descentralizado.",
+    "descripcion": "Ejes de la transición:\n• Continuidad de competencias hasta la instalación del nuevo organismo\n• Transferencia de expedientes, bienes y recursos\n• Continuidad jurídica y administrativa\n• Incorporación del personal al nuevo organismo.",
+    "articulos": "Art. 107",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia", "consumidores"]
+  },
+  {
+    "norma": "Dirección de Investigaciones",
+    "bajada": "Se crea un órgano técnico especializado y se fortalecen las herramientas preventivas de la política de competencia.",
+    "descripcion": "Tendrá a su cargo:\n• Instrucción de investigaciones.\n• Análisis de concentraciones económicas.\n• Inspecciones y obtención de evidencia.\n• Elaboración de informes técnicos.\n• Recomendaciones al Directorio.\nAsimismo, la COPRODEC podrá elaborar guías, recomendaciones, lineamientos y códigos de buenas prácticas, para promover relaciones competitivas entre proveedores, distribuidores y grandes superficies comerciales.\nLa separación entre investigación y decisión fortalece la objetividad, mientras que las nuevas facultades preventivas promueven una cultura de cumplimiento.",
+    "articulos": "Arts. 108-110 y Art. 140",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia", "consumidores"]
+  },
+  {
+    "norma": "Modernización del control de concentraciones económicas",
+    "bajada": "Se actualiza el régimen de control previo para concentrar la intervención pública en las operaciones con mayor impacto competitivo.",
+    "descripcion": "La reforma procura que la Comisión concentre sus recursos en el análisis de las operaciones que realmente puedan afectar el funcionamiento de los mercados.\n• Redefine los umbrales de notificación obligatoria.\n• Precisa los criterios para determinar el cambio de control.\n• Ajusta las reglas para el cálculo de la facturación relevante.\n• Simplifica el procedimiento de análisis.\n• Crea una tasa destinada a financiar el sistema de control de concentraciones.",
+    "articulos": "Arts. 111-116",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia", "consumidores"]
+  },
+  {
+    "norma": "Modernización del régimen de prácticas anticompetitivas",
+    "bajada": "Se actualizan las definiciones legales para alinearlas con las mejores prácticas internacionales.",
+    "descripcion": "Redefine las prácticas anticompetitivas:\n• Distingue acuerdos horizontales, acuerdos verticales y conductas unilaterales.\n• Incorpora las prácticas ilícitas por su objeto para las conductas más graves.\n• Mantiene el análisis de efectos para las restantes conductas.",
+    "articulos": "Arts. 117-118",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia", "consumidores"]
+  },
+  {
+    "norma": "Fortalecimiento de las investigaciones",
+    "bajada": "Se incorporan nuevas herramientas para investigar conductas anticompetitivas.",
+    "descripcion": "La Dirección de Investigaciones podrá:\n• Requerir información y documentación.\n• Realizar inspecciones.\n• Obtener y preservar evidencia.\n• Requerir colaboración de org. públicos.\n• Adoptar medidas necesarias para asegurar la eficacia de las investigaciones.\nAsimismo, se fortalecen las garantías procedimentales de las partes.",
+    "articulos": "Arts. 119-124",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia", "consumidores"]
+  },
+  {
+    "norma": "Nuevos instrumentos para una aplicación más eficaz",
+    "bajada": "Se incorporan tres herramientas para detectar carteles y optimizar la asignación de recursos.",
+    "descripcion": "Priorización de casos: La Comisión podrá concentrar sus recursos en las investigaciones de mayor impacto sobre el bienestar de los consumidores y el funcionamiento de los mercados.\nPrograma de Clemencia: Reducción o exoneración de sanciones para quienes colaboren eficazmente en la detección de acuerdos colusorios.\nTerminación Anticipada: Posibilidad de concluir procedimientos mediante compromisos cuando ello permita restablecer rápidamente las condiciones de competencia.",
+    "articulos": "Arts. 119-132",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia", "consumidores"]
+  },
+  {
+    "norma": "Régimen sancionatorio",
+    "bajada": "Se actualizan las sanciones para fortalecer su proporcionalidad y efecto disuasorio.",
+    "descripcion": "Medidas:\n• Redefine los criterios para graduar las sanciones.\n• Incorpora parámetros objetivos para valorar la gravedad de las infracciones.\n• Fortalece el régimen de multas.\n• Mejora la ejecución de las resoluciones.\n• Armoniza el sistema sancionatorio con la nueva institucionalidad.",
+    "articulos": "Arts. 133-139",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia", "consumidores"]
+  },
+  {
+    "norma": "Habilitación de importadores subsiguientes de un mismo producto",
+    "bajada": "Se reducen barreras regulatorias para facilitar la competencia intramarca en productos regulados.",
+    "descripcion": "Se crea un procedimiento simplificado para el registro de importadores subsiguientes de un mismo producto previamente registrado.\n1. Evita duplicar información ya evaluada por la autoridad competente.\n2. Simplifica la documentación exigida.\n3. Reduce costos y tiempos de tramitación.\n4. Facilita el ingreso de nuevos oferentes.",
+    "articulos": "Art. 141",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["comercio exterior", "competencia"]
+  },
+  {
+    "norma": "Fomento de la competencia en las compras públicas",
+    "bajada": "Se incorporan criterios procompetitivos en el diseño de los procedimientos de contratación pública.",
+    "descripcion": "Entre otros aspectos, podrá contemplar:\n• Criterios para ampliar la participación de oferentes.\n• Procedimientos de demanda coordinada.\n• Sectores expuestos a prácticas anticompetitiva.\n• Facilitar la participación de empresas de menor tamaño.",
+    "articulos": "Art. 142",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["compras públicas", "competencia"]
+  },
+  {
+    "norma": "Regulación de tasas de intercambio en medios de pago",
+    "bajada": "Se habilita la regulación de costos asociados a transferencias y medios de pago electrónicos cuando resulte necesario para promover la competencia.",
+    "descripcion": "Se faculta al Poder Ejecutivo a regular la tasa de intercambio, entendida como la remuneración que el adquirente debe abonar a los emisores de los medios de pago electrónicos.\nLa tasa de intercambio es un costo que el adquirente traslada a los comercios mediante el arancel por aceptar tarjetas. Si es elevada, encarece el uso de medios de pago electrónicos repercutiendo en los precios pagados por consumidores y empresas.",
+    "articulos": "Art. 143",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["interoperabilidad", "modernización"]
+  },
+  {
+    "norma": "Libre elección de lanchas de practicaje",
+    "bajada": "Se promueve la competencia en el servicio de transporte para embarque y desembarque de prácticos.",
+    "descripcion": "La elección de la embarcación corresponderá al agente marítimo entre todas las lanchas habilitadas por la autoridad competente.\n• Elimina restricciones a la elección del prestador.\n• Favorece la competencia entre operadores habilitados.\n• Contribuye a reducir costos operativos del sistema portuario.",
+    "articulos": "Art. 144",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["competencia"]
+  },
+  {
+    "norma": "Información para el consumidor: precios por unidad de medida",
+    "bajada": "Se mejora la información disponible para los consumidores mediante la exhibición obligatoria del precio por unidad de medida.",
+    "descripcion": "Las grandes superficies comerciales y los supermercados con dos o más cajas fijas habilitadas para recibir pagos deberán exhibir, junto con el precio de venta, el precio por unidad de medida (kilogramo, litro, metro, unidad).\nLa obligación también alcanzará al comercio electrónico.\nLa exhibición uniforme facilita la comparación entre productos de distinto tamaño o presentación, mejora la transparencia y promueve decisiones de compra más informadas.\nLa Unidad de Defensa del Consumidor del MEF será el organismo encargado de la fiscalización.",
+    "articulos": "Arts. 145-148",
+    "capitulo": "III",
+    "area": "Promoción de la competencia y reducción del costo de vida",
+    "subtemas": ["consumidores"]
+  },
+  {
+    "norma": "Fortalecimiento de las micro, pequeñas y medianas empresas",
+    "bajada": "Se simplifican los procedimientos para acceder a los instrumentos públicos de apoyo empresarial, reduciendo cargas administrativas y costos de cumplimiento.",
+    "descripcion": "Medidas:\n• Elimina cargas tributarias que dificultan el crecimiento y la formalización de las empresas\n• Aranceles diferenciales para registros técnicos, sanitarios, fitosanitarios o ambientales según el tamaño de la empresa\n• Se crea una plataforma integrada para la gestión de trámites entre DGI y BPS;\n• Sistema gratuito de facturación electrónica para MIPYMES.\nEstas medidas reducen costos administrativos, mejoran el acceso a los instrumentos de apoyo empresarial y permiten que las empresas concentren sus recursos en actividades productivas.",
+    "articulos": "Arts. 149-159",
+    "capitulo": "IV",
+    "area": "Innovación y aceleración de la inversión",
+    "subtemas": ["pymes", "modernización"]
+  },
+  {
+    "norma": "Entornos controlados de prueba",
+    "bajada": "Se crea un régimen de prueba regulatoria para facilitar la innovación financiera bajo supervisión del Banco Central del Uruguay.",
+    "descripcion": "La reforma habilita la implementación de entornos controlados de prueba (sandboxes) para nuevos modelos de negocio, productos o servicios financieros.\nEstos espacios permiten probar soluciones innovadoras bajo condiciones definidas, supervisión regulatoria y límites temporales.\nLa medida reduce barreras de entrada para la innovación financiera, preservando la seguridad, estabilidad y protección de los usuarios del sistema.",
+    "articulos": "Arts. 160-163",
+    "capitulo": "IV",
+    "area": "Innovación y aceleración de la inversión",
+    "subtemas": ["innovación", "fintech"]
+  },
+  {
+    "norma": "Fondos de Inversión Cerrados Promovidos",
+    "bajada": "Se crea un nuevo vehículo de inversión destinado a canalizar ahorro hacia el financiamiento de actividades productivas en Uruguay.",
+    "descripcion": "La reforma crea los Fondos de Inversión Cerrados Promovidos, orientados al financiamiento de proyectos productivos mediante instrumentos de largo plazo.\nLa reforma procura canalizar el ahorro hacia la inversión productiva, ampliar las fuentes de financiamiento de largo plazo y profundizar el mercado de capitales uruguayo.",
+    "articulos": "Arts. 164-183",
+    "capitulo": "IV",
+    "area": "Innovación y aceleración de la inversión",
+    "subtemas": ["innovación", "fintech"]
+  },
+  {
+    "norma": "Finanzas Abiertas",
+    "bajada": "Marco legal para que personas y empresas puedan compartir información financiera de forma segura y voluntaria, facilitando el acceso a nuevos productos y servicios financieros.",
+    "descripcion": "El proyecto establece los principios generales del sistema de Finanzas Abiertas, promoviendo un ecosistema financiero más competitivo, innovador e interoperable.\nLas Finanzas Abiertas permiten que la información financiera deje de estar cautiva en una única institución y pueda utilizarse, con autorización del usuario, para acceder a mejores productos, mejores condiciones de financiamiento y nuevos servicios financieros.",
+    "articulos": "Arts. 184-204",
+    "capitulo": "IV",
+    "area": "Innovación y aceleración de la inversión",
+    "subtemas": ["innovación", "fintech"]
+  },
+  {
+    "norma": "Fortalecimiento del financiamiento colectivo (crowdfunding)",
+    "bajada": "Se eliminan asimetrías regulatorias y tributarias para promover el desarrollo de las plataformas de financiamiento colectivo.",
+    "descripcion": "Medidas:\n• Equipara el tratamiento tributario de los valores emitidos a través de estas plataformas con el aplicable a otros valores de oferta pública.\n• Elimina asimetrías regulatorias que limitaban el desarrollo.\n• Amplía los incentivos para emisores e inversores.\nLa reforma amplía las alternativas de financiamiento empresarial y contribuye al desarrollo del mercado de capitales nacional.",
+    "articulos": "Arts. 205-209",
+    "capitulo": "IV",
+    "area": "Innovación y aceleración de la inversión",
+    "subtemas": ["innovación", "fintech"]
+  },
+  {
+    "norma": "Financiamiento de la innovación",
+    "bajada": "Se fortalecen los instrumentos públicos y privados para financiar proyectos de innovación y atraer inversión de largo plazo.",
+    "descripcion": "Tres medidas principales:\n• Régimen de impatriados (Art. 210)\n• Proyectos Integrales de Innovación e Inversión (Art. 211)\n• Ampliación de gastos promovidos de I+D (Art. 212)\nLa reforma procura canalizar el ahorro hacia la inversión productiva, ampliar las fuentes de financiamiento de largo plazo y profundizar el mercado de capitales uruguayo.",
+    "articulos": "Arts. 210-212",
+    "capitulo": "IV",
+    "area": "Innovación y aceleración de la inversión",
+    "subtemas": ["innovación", "fintech"]
+  },
+  {
+    "norma": "Facilitación de la transferencia tecnológica",
+    "bajada": "Se moderniza el marco jurídico de las instituciones públicas de investigación para facilitar la transferencia de conocimiento hacia el sector productivo.",
+    "descripcion": "Medidas:\n• Habilitación a instituciones públicas para participar en sociedades, fideicomisos y otros vehículos de transferencia tecnológica.\n• Modernización del marco normativo del INIA, fortaleciendo sus instrumentos de gobernanza, financiamiento y vinculación con el sector productivo.\n• Creación de nuevos mecanismos para promover la valorización y comercialización de los resultados de la investigación.\nEl objetivo es transformar el conocimiento generado con financiamiento público en innovación, productividad y desarrollo económico, preservando el interés público y la transparencia.",
+    "articulos": "Arts. 213-220",
+    "capitulo": "IV",
+    "area": "Innovación y aceleración de la inversión",
+    "subtemas": ["innovación", "fintech"]
+  },
+  {
+    "norma": "Estímulos sectoriales (I)",
+    "bajada": "Se modernizan distintos regímenes sectoriales para facilitar la inversión y mejorar la competitividad.",
+    "descripcion": "Zonas Francas (Arts. 221-222): adecúa el régimen sancionatorio por incumplimientos formales y flexibiliza el régimen aplicable a zonas francas temáticas de servicios.\nParques Industriales y Científico Tecnológicos (Arts. 223-225): Agilita la habilitación de nuevos parques y se amplían beneficios para empresas.\nMinería, Pesca y Acuicultura (Arts. 226-230): Actualizan los criterios para la calificación de proyectos de minería de gran porte, crea un programa de diversificación pesquera y promueve el desarrollo sostenible de la acuicultura.\nSe modernizan marcos regulatorios estratégicos para promover inversión, innovación y desarrollo productivo.",
+    "articulos": "Arts. 221-230",
+    "capitulo": "IV",
+    "area": "Innovación y aceleración de la inversión",
+    "subtemas": ["innovación", "minería", "agro"]
+  },
+  {
+    "norma": "Estímulos sectoriales (II)",
+    "bajada": "Se incorporan medidas específicas para fortalecer sectores con alto potencial de generación de valor agregado.",
+    "descripcion": "Sectores incluidos:\nIndustria láctea (Arts. 231-232): Amplían los beneficiarios del régimen de promoción, priorizando MiPyMEs y proyectos de adaptación a nuevos mercados.\nINAVI (Art. 233): Habilita al Instituto a prestar servicios de valor agregado y a diversificar sus fuentes de financiamiento.\nPropiedad intelectual (Art. 234): Fortalece la protección de las patentes de invención y la tutela de derechos durante el proceso de concesión.\nInvestigación clínica (Arts. 235-239): Declara de interés nacional la investigación clínica y se crean incentivos para atraer ensayos clínicos e inversiones.\nFortalecen sectores intensivos en conocimiento y contribuyen a la diversificación productiva del país.",
+    "articulos": "Arts. 231-239",
+    "capitulo": "IV",
+    "area": "Innovación y aceleración de la inversión",
+    "subtemas": ["salud", "agro"]
+  },
+  {
+    "norma": "Exclusión de los productos del tabaco",
+    "bajada": "Se preserva íntegramente el régimen jurídico vigente en materia de control del tabaco.",
+    "descripcion": "El proyecto establece expresamente que ninguna de sus disposiciones será aplicable a la industria del tabaco ni a sus productos.\nLas medidas de simplificación regulatoria, promoción de la competencia, facilitación del comercio, innovación y estímulo a la inversión previstas en la ley no modifican ni afectan el marco normativo vigente en materia de control del tabaco.\nSe garantiza la plena vigencia de la política nacional de control del tabaco y de las competencias de las autoridades sanitarias.",
+    "articulos": "Art. 240",
+    "capitulo": "IV",
+    "area": "Innovación y aceleración de la inversión",
+    "subtemas": ["salud", "ambiente"]
+  }
+]
+const CAP_TITLES = {
+  I:'Modernización del Estado y simplificación regulatoria',
+  II:'Facilitación del comercio exterior',
+  III:'Promoción de la competencia y reducción del costo de vida',
+  IV:'Innovación y aceleración de la inversión'
+};
+function capLabel(c){ return 'Capítulo ' + c + ': ' + (CAP_TITLES[c] || ''); }
+
+let activeCap = null;
+let activeTemas = new Set();
+
+function uniqueCaps(){
+  const order = ['I','II','III','IV'];
+  return order.filter(c => DATA.some(d => d.capitulo === c));
+}
+function uniqueTemas(){
+  const set = new Set();
+  DATA.forEach(d => d.subtemas.forEach(t => set.add(t)));
+  return Array.from(set).sort((a,b)=>a.localeCompare(b,'es'));
+}
+
+function countFor(predicateExtra){
+  return DATA.filter(d => matchesAll(d, predicateExtra)).length;
+}
+
+function matchesAll(d, override){
+  const cap = override && 'cap' in override ? override.cap : activeCap;
+  const temas = override && 'temas' in override ? override.temas : activeTemas;
+  if(cap && d.capitulo !== cap) return false;
+  if(temas.size > 0 && !d.subtemas.some(t => temas.has(t))) return false;
+  return true;
+}
+
+function renderCapSelect(){
+  const el = document.getElementById('cap-select');
+  const prevValue = activeCap===null ? '' : activeCap;
+  el.innerHTML = '';
+
+  const allOpt = document.createElement('option');
+  allOpt.value = '';
+  allOpt.textContent = 'Todos los capítulos';
+  el.appendChild(allOpt);
+
+  uniqueCaps().forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c;
+    opt.textContent = capLabel(c);
+    el.appendChild(opt);
+  });
+
+  el.value = prevValue;
+  el.onchange = () => { activeCap = el.value === '' ? null : el.value; render(); };
+}
+
+function renderTemaChips(){
+  const el = document.getElementById('tema-chips');
+  el.innerHTML = '';
+  uniqueTemas().forEach(t => {
+    const btn = document.createElement('button');
+    const isActive = activeTemas.has(t);
+    btn.className = 'chip tema' + (isActive ? ' active':'');
+    const newTemas = new Set(activeTemas);
+    const n = countFor({cap:activeCap, temas:isActive ? activeTemas : new Set([...activeTemas, t])});
+    btn.innerHTML = capitalizeFirst(t) + '<span class="count">'+ (isActive ? countFor({cap:activeCap,temas:activeTemas}) : n) +'</span>';
+    btn.onclick = () => {
+      if(activeTemas.has(t)) activeTemas.delete(t); else activeTemas.add(t);
+      render();
+    };
+    el.appendChild(btn);
+  });
+}
+
+function toggleTema(t){
+  if(activeTemas.has(t)) activeTemas.delete(t); else activeTemas.add(t);
+  render();
+}
+
+function capitalizeFirst(str){
+  if(!str) return str;
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function formatDescripcion(text){
+  const lines = text.split('\n');
+  const out = [];
+  let listBuffer = [];
+  function flushList(){
+    if(listBuffer.length){
+      out.push('<ul>' + listBuffer.map(li => '<li>'+escapeHtml(li)+'</li>').join('') + '</ul>');
+      listBuffer = [];
+    }
+  }
+  lines.forEach(rawLine => {
+    if(rawLine.trim() === ''){
+      flushList();
+      return;
+    }
+    if(/\s$/.test(rawLine)){
+      listBuffer.push(rawLine.trim());
+    } else {
+      flushList();
+      out.push('<p>'+escapeHtml(rawLine.trim())+'</p>');
+    }
+  });
+  flushList();
+  return out.join('');
+}
+
+function renderList(){
+  const list = document.getElementById('list');
+  const emptyEl = document.getElementById('empty');
+  const filtered = DATA.filter(d => matchesAll(d));
+  document.getElementById('results-count').textContent = filtered.length + ' de ' + DATA.length + ' propuestas';
+  document.getElementById('clear-btn').disabled = (activeCap===null && activeTemas.size===0);
+
+  list.innerHTML = '';
+  if(filtered.length === 0){
+    emptyEl.style.display = 'block';
+    return;
+  }
+  emptyEl.style.display = 'none';
+
+  filtered.forEach((d, idx) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const body = document.createElement('div');
+    body.className = 'card-body';
+
+    const metaLine = document.createElement('div');
+    metaLine.className = 'meta-line';
+    const areaTag = document.createElement('p');
+    areaTag.className = 'area-tag';
+    areaTag.textContent = capLabel(d.capitulo);
+    metaLine.appendChild(areaTag);
+    body.appendChild(metaLine);
+
+    const norma = document.createElement('p');
+    norma.className = 'norma';
+    norma.textContent = d.norma;
+    body.appendChild(norma);
+
+    if(d.bajada){
+      const bajada = document.createElement('p');
+      bajada.className = 'bajada';
+      bajada.textContent = d.bajada;
+      body.appendChild(bajada);
+    }
+
+    if(d.subtemas.length){
+      const subs = document.createElement('div');
+      subs.className = 'subtemas';
+      d.subtemas.forEach(t => {
+        const tag = document.createElement('button');
+        tag.className = 'tema-tag' + (activeTemas.has(t) ? ' active' : '');
+        tag.textContent = capitalizeFirst(t);
+        tag.onclick = (e) => { e.stopPropagation(); toggleTema(t); };
+        subs.appendChild(tag);
+      });
+      body.appendChild(subs);
+    }
+
+    const hasDetail = d.descripcion || d.articulos;
+    if(hasDetail){
+      const toggle = document.createElement('button');
+      toggle.className = 'toggle-btn';
+      toggle.innerHTML = 'Ver más <span class="arrow">▾</span>';
+      toggle.onclick = () => { card.classList.toggle('open'); };
+      body.appendChild(toggle);
+
+      const detail = document.createElement('div');
+      detail.className = 'detail';
+      if(d.articulos){
+        const arts = document.createElement('span');
+        arts.className = 'arts';
+        arts.textContent = d.articulos.toLowerCase().startsWith('art') ? d.articulos : 'Referencia: ' + d.articulos;
+        detail.appendChild(arts);
+      }
+      if(d.descripcion){
+        const desc = document.createElement('div');
+        desc.className = 'desc-block';
+        desc.innerHTML = formatDescripcion(d.descripcion);
+        detail.appendChild(desc);
+      }
+      body.appendChild(detail);
+    }
+
+    card.appendChild(body);
+    list.appendChild(card);
+  });
+}
+
+function render(){
+  renderCapSelect();
+  renderTemaChips();
+  renderList();
+}
+
+document.getElementById('clear-btn').onclick = () => {
+  activeCap = null;
+  activeTemas = new Set();
+  render();
+};
+
+render();
+</script>
+</body>
+</html>
