@@ -22,12 +22,15 @@
     --line-strong:#B7C0CA;
   }
   *{box-sizing:border-box;}
+  html{overflow-x:hidden;}
   body{
     margin:0;
     background:var(--paper);
     color:var(--ink);
     font-family:'Sora',sans-serif;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    max-width:100vw;
   }
   .wrap{max-width:820px;margin:0 auto;padding:0 20px 80px;}
 
@@ -88,7 +91,6 @@
 
   /* filters */
   .filters{
-    position:sticky;top:0;z-index:5;
     background:var(--paper);
     padding:18px 0 16px;
     border-bottom:1px solid var(--line);
@@ -134,6 +136,8 @@
     padding:9px 34px 9px 14px;
     cursor:pointer;
     min-width:220px;
+    max-width:100%;
+    text-overflow:ellipsis;
   }
   .cap-select:hover{border-color:var(--seal);}
   .cap-select:focus{outline:2px solid var(--seal);outline-offset:1px;}
@@ -247,15 +251,23 @@
 
   @media (max-width:520px){
     .norma{font-size:17px;}
+    .cap-select{
+      width:100%;
+      min-width:0;
+    }
+    .wrap{padding-left:16px;padding-right:16px;}
+    .intro p{max-width:100%;}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <section class="intro">
-    <p>Conocé las principales medidas del proyecto de ley presentado por el Poder Ejecutivo, actualmente en discusión en el Parlamento.</p>
-    <p>La iniciativa reúne 240 artículos con propuestas orientadas a dinamizar la economía nacional mediante la eliminación de trabas burocráticas, la reducción de costos y el fomento de la inversión.</p>
-    <p>Para facilitar su consulta, el Ministerio de Economía y Finanzas desarrolló este interactivo, que organiza el contenido por temas y permite recorrer las principales iniciativas del proyecto de forma ágil.</p>
+<p>Una guía para conocer las principales medidas del proyecto de ley presentado por el Poder Ejecutivo, actualmente en discusión en el Parlamento.</p>
+
+<p>La iniciativa reúne más de 200 artículos con propuestas orientadas a dinamizar la economía nacional mediante la eliminación de trabas burocráticas, la reducción de costos y el fomento de la inversión.</p>
+
+<p>Para facilitar su consulta, el Ministerio de Economía y Finanzas desarrolló este interactivo, que organiza el contenido por temas y permite recorrer las principales iniciativas del proyecto de forma ágil. Es una herramienta para ubicar en el articulado las diferentes medidas. Para conocer en profundidad cada una de ellas, se recomienda acceder al proyecto completo.</p>
     <a class="intro-cta" href="https://www.gub.uy/ministerio-economia-finanzas/comunicacion/noticias/proyecto-ley-competitividad-reduccion-del-costo-vida-ingresa-senado" target="_blank" rel="noopener">Accedé al articulado completo</a>
   </section>
 
@@ -293,20 +305,20 @@ const DATA = [
   },
   {
     "norma": "Programa de Calidad Regulatoria y Agilización de Trámites",
-    "bajada": "Los principios y técnicas requieren implementación con colaboración público - privada",
-    "descripcion": "A través del Programa de Calidad Regulatoria y agilización de Trámites se implementarán los mecanismos agilizadores en procedimientos concretos\n•Identificación de oportunidades\n•Revisión y rediseño\n•Modificación normativa\n•Medición del impacto\n•No se crea burocracia nueva, se coordina la implementación de las mejoras identificadas.",
+    "bajada": "Los principios y técnicas requieren implementación con colaboración público - privada. Impacto estimado: ahorro de ~USD 20M por año",
+    "descripcion": "A través del programa se implementarán los mecanismos agilizadores en procedimientos concretos\n•Identificación de oportunidades\n•Revisión y rediseño\n•Modificación normativa\n•Medición del impacto\nNo se crea burocracia nueva, se coordina la implementación de las mejoras identificadas.",
     "articulos": "Art. 5",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["modernización"]
   },
   {
     "norma": "Registro Único de Apoderados y Representantes",
     "bajada": "Se centraliza la acreditación de representación para trámites ante el Estado.",
-    "descripcion": "Se crea el RUAR en el ámbito de la Dirección General de Registro. La inscripción permitirá acreditar representación frente a los organismos comprendidos.\nSe centraliza la acreditación de representación para trámites ante el Estado.\nLas entidades públicas deberán consultar el Registro antes de requerir nuevamente la documentación correspondiente.\nLos representantes deberán mantener actualizada la información registrada\nLa representación jurídica pasa a acreditarse una sola vez y tiene validez permanente",
+    "descripcion": "Se crea el RUAR en el ámbito de la Dirección General de Registro. La inscripción permitirá acreditar representación frente a los organismos comprendidos. \nLas entidades públicas deberán consultar el Registro antes de requerir nuevamente la documentación correspondiente.\nLos representantes deberán mantener actualizada la información registrada\nLa representación jurídica pasa a acreditarse una sola vez y tiene validez permanente",
     "articulos": "Art. 10",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["modernización", "menos papel"]
   },
   {
@@ -315,25 +327,25 @@ const DATA = [
     "descripcion": "Los estados financieros incorporados a la Central de Balances Electrónica producirán efectos frente a los organismos públicos. No podrán volver a requerirse salvo: \n•disposición legal expresa \n•información insuficiente \n•necesidad de actualización.\nLa presentación de estados financieros ante la AIN produce efectos frente a toda la Administración.\nCuando un organismo necesite anticipadamente la información, ésta deberá presentarse únicamente ante la AIN.\nLa Auditoría Interna de la Nación definirá las condiciones técnicas de acceso, interoperabilidad y seguridad.\nLa información contable se presenta una única vez y puede reutilizarse por toda la Administración.",
     "articulos": "Art. 11",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["modernización", "interoperabilidad", "innovación"]
   },
   {
     "norma": "Ventanilla Única Marítima",
     "bajada": "Se crea una plataforma única para la gestión electrónica de los trámites marítimos.",
-    "descripcion": "Se crea la Ventanilla Única Marítima (VUM) para los trámites asociados al arribo, permanencia y salida de buques. La plataforma se basará en la experiencia técnica de la VUCE, que ha demostrado ser muy exitosa para la agilización y reducción de costos de trámites en el comercio exterior\nSe crea una plataforma única para la gestión electrónica de los trámites marítimos.\nLos documentos y actuaciones electrónicas gestionadas mediante la VUM tendrán plena validez jurídica.\nSu incorporación será gradual conforme al cronograma de implementación.\nLos organismos participantes mantienen íntegramente sus competencias de control, fiscalización y autorización.",
+    "descripcion": "Se crea la Ventanilla Única Marítima (VUM) para los trámites asociados al arribo, permanencia y salida de buques. La plataforma se basará en la experiencia técnica de la VUCE, que ha demostrado ser muy exitosa para la agilización y reducción de costos de trámites en el comercio exterior. \nLos documentos y actuaciones electrónicas gestionadas mediante la VUM tendrán plena validez jurídica.\nSu incorporación será gradual conforme al cronograma de implementación.\nLos organismos participantes mantienen íntegramente sus competencias de control, fiscalización y autorización.",
     "articulos": "Arts. 12-18",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
-    "subtemas": ["interoperabilidad", "comercio exterior"]
+    "area": "Agilización de trámites",
+    "subtemas": ["interoperabilidad", "comercio exterior", "marítimo"]
   },
   {
     "norma": "Interoperabilidad para evaluación del riesgo crediticio",
     "bajada": "Se habilita el acceso a información pública para mejorar la evaluación crediticia con garantías de protección de datos.",
-    "descripcion": "Las entidades supervisadas por el BCU podrán acceder, mediante interoperabilidad, a información para una evaluación más completa de la capacidad de pago de los solicitantes. Se habilita el acceso a información pública para mejorar la evaluación crediticia con garantías de protección de datos.\nEl consentimiento informado de los solicitantes garantiza el uso adecuado.\nLas entidades deberán acreditar cumplimiento de estándares regulatorios y éticos en uso de datos personales\nLa interoperabilidad permite un uso más eficiente de la información pública, preservando las garantías de protección de datos personales.",
+    "descripcion": "Las entidades supervisadas por el BCU podrán acceder, mediante interoperabilidad, a información para una evaluación más completa de la capacidad de pago de los solicitantes. \nEl consentimiento informado de los solicitantes garantiza el uso adecuado. Las entidades deberán acreditar cumplimiento de estándares regulatorios y éticos en uso de datos personales\nLa interoperabilidad permite un uso más eficiente de la información pública, preservando las garantías de protección de datos personales.",
     "articulos": "Art. 19",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["modernización", "interoperabilidad", "innovación"]
   },
   {
@@ -342,7 +354,7 @@ const DATA = [
     "descripcion": "El Sistema de Registro y Gestión Comercial y Certificación (SRGCC), que funcionará en el ámbito del MGAP, integrará digitalmente:\n• registros de operadores;\n• certificaciones sanitarias;\n• documentación comercial;\n• información de trazabilidad;\n• comercio exterior.",
     "articulos": "Art. 20",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["agro", "modernización", "interoperabilidad"]
   },
   {
@@ -351,7 +363,7 @@ const DATA = [
     "descripcion": "\n•Declara de interés nacional la incorporación progresiva del notariado electrónico;\n•Crea un grupo de trabajo para proponer las adecuaciones normativas necesarias;\n•Reconoce la equivalencia funcional de la documentación notarial electrónica;\n•Habilita la llevanza digital de libros societarios;\n•Permite la firma electrónica de actas societarias.\nLa reforma incorpora herramientas digitales preservando la seguridad jurídica de la actuación notarial y societaria.",
     "articulos": "Arts. 21-23",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["modernización", "menos papel"]
   },
   {
@@ -360,16 +372,16 @@ const DATA = [
     "descripcion": "RUNAEV: No podrá requerirse información que está en el RUNAEV. Participación en programa de agilización de trámites.\nIMEBA: Digitalización del acceso a créditos fiscales.\nConsulado Digital: Digitalización de trámites consulares.",
     "articulos": "Arts. 24-28",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["interoperabilidad", "modernización", "menos papel", "agro"]
   },
   {
     "norma": "Modernización de los registros sanitarios, fitosanitarios, técnicos y ambientales",
-    "bajada": "Se simplifican los procedimientos de registro manteniendo íntegramente los estándares de protección sanitaria, técnica y ambiental.",
+    "bajada": "Se simplifican los procedimientos de registro manteniendo íntegramente los estándares de protección sanitaria, técnica y ambiental. Permite un ahorro de ~USD 4M para las empresas registrantes",
     "descripcion": "Cambia procedimientos aplicables a estos productos mediante tres medidas principales:\n• Vigencia mínima de 10 años, con excepciones cuando el riesgo regulatorio lo justifique.\n• Renovación simplificada mediante declaración jurada cuando no existan cambios en las condiciones que dieron origen al registro.\n• Validación digital de certificados emitidos por autoridades extranjeras: elimina exigencia de apostillado o legalización cuando su autenticidad pueda verificarse.\nReduce costos y tiempos de tramitación, permite concentrar los recursos públicos en el control de los productos de mayor riesgo, sin disminuir los estándares sanitarios, técnicos o ambientales.",
     "articulos": "Arts. 29-31",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["salud", "ambiente", "modernización"]
   },
   {
@@ -378,7 +390,7 @@ const DATA = [
     "descripcion": "Acceso de desarrolladores extranjeros (Arts. 33-34):\n• Agilización para operadores de países con cooperación\n• Posibilidad de reutilizar información validada\nAmpliación de productos (Art. 35):\n• Microorganismos\n• Animales genéticamente modificados\nLa reforma reduce barreras administrativas, fortalece la capacidad regulatoria del país y facilita la incorporación responsable de innovación biotecnológica al sector agropecuario.",
     "articulos": "Arts. 33-35",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["modernización", "innovación", "salud"]
   },
   {
@@ -387,7 +399,7 @@ const DATA = [
     "descripcion": "Sectores incluidos:\n• Producción familiar\n• Frutas y hortalizas\n• Cadena forestal\n• Instituto Nacional de Carnes\n• Compras públicas\n Las medidas incorporan simplificaciones específicas para producción familiar, cadenas agroindustriales y procedimientos administrativos sectoriales.",
     "articulos": "Arts. 37-45",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["agro", "modernización", "ambiente"]
   },
   {
@@ -396,7 +408,7 @@ const DATA = [
     "descripcion": "Se ajusta el régimen vigente para simplificar los trámites que las industrias proveedoras de la construcción deben hacer para aportar por el régimen de Industria y Comercio.\nLa reforma sustituye un esquema basado en excepciones caso a caso por reglas generales más claras.\nNo modifica el régimen general aplicable a la actividad constructiva propiamente dicha.\nLa reforma brinda mayor certeza sobre el régimen de aportación aplicable a actividades proveedoras especializadas y reduce los trámites que deben hacer.",
     "articulos": "Art. 46",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["construcción", "modernización"]
   },
   {
@@ -405,7 +417,7 @@ const DATA = [
     "descripcion": "• Art. 47: Se deroga el registro obligatorio de fabricantes de bebidas sin alcohol.\n• Art. 48: Se elimina la prohibición legal de comercializar bebidas alcohólicas en envases superiores a un litro.\nLas restantes potestades regulatorias y sanitarias permanecen incambiadas.",
     "articulos": "Art. 47-48",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["modernización", "consumidores"]
   },
   {
@@ -414,25 +426,25 @@ const DATA = [
     "descripcion": "Art. 49: Actualización del régimen de arrendamiento de derechos mineros.\nArt. 50: Ajustes al régimen de servidumbres e indemnizaciones.\nArt. 51: Simplificación de autorizaciones previas.\nArt. 52: Flexibilización de informes periódicos de exploración.\nArt. 53: Adecuación del régimen de inactividad.\nArt. 54: Continuidad de los derechos mientras se tramita la concesión de explotación.\nLas modificaciones buscan dotar de mayor previsibilidad y continuidad a los procedimientos.",
     "articulos": "Art. 49-54",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["minería", "modernización"]
   },
   {
     "norma": "Productos de salud",
     "bajada": "Se simplifican procedimientos administrativos preservando íntegramente los estándares sanitarios",
-    "descripcion": "Art. 55: Cosméticos: Reconocimiento de menor riesgo que guiará las exigencias técnicas y la fiscalización\nArt. 56: Trámite paralelo de habilitación de depósito y obtención de registros.\nArt. 57: Extiende a diez años habilitaciones de empresas\nArt. 58: Modificaciones de registros. Declaración jurada con silencio positivo para cambios que no alteren la identidad del producto\nArt. 59: Tecnología médica. Alternativas para Certificado de Libre Venta (CLV)\nArt. 60: Eliminación de traducciones para documentos emitidos en inglés o portugués\nArt. 61: CLV único para productos multiplanta",
+    "descripcion": "Art. 55: Cosméticos: Reconocimiento de menor riesgo que guiará las exigencias técnicas y la fiscalización.\nArt. 56: Trámite paralelo de habilitación de depósito y obtención de registros.\nArt. 57: Extiende a diez años habilitaciones de empresas.\nArt. 58: Modificaciones de registros. Declaración jurada con silencio positivo para cambios que no alteren la identidad del producto. \nArt. 59: Tecnología médica. Alternativas para Certificado de Libre Venta (CLV).\nArt. 60: Eliminación de traducciones para documentos emitidos en inglés o portugués.\nArt. 61: CLV único para productos multiplanta.",
     "articulos": "Art. 55-61",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["salud", "modernización"]
   },
   {
     "norma": "Fortalecimiento institucional de la regulacion sanitaria",
     "bajada": "Se fortalece la regulación y la evaluación de tecnologías mediante organismos especializados",
-    "descripcion": "Agencia de Vigilancia Sanitaria del Uruguay (AVISU): Se incorporan: reactivos de diagnóstico, alimentos para propósitos médicos especiales, productos domisanitarios y precursores químicos.\nAgencia de Evaluación de Tecnologías Sanitarias del Uruguay (AETSU): \n• Actualización de competencias. \n• Nueva estructura institucional.\nUna regulación eficiente y ágil requiere instituciones profesionales. La reforma amplía la cobertura de la Agencia de vigilancia sanitaria y fortalece la evaluación de tecnologías sanitarias.",
+    "descripcion": "Agencia de Vigilancia Sanitaria del Uruguay (AVISU): \nSe incorporan: reactivos de diagnóstico, alimentos para propósitos médicos especiales, productos domisanitarios y precursores químicos.\nAgencia de Evaluación de Tecnologías Sanitarias del Uruguay (AETSU): \n• Actualización de competencias. \n• Nueva estructura institucional.\nUna regulación eficiente y ágil requiere instituciones profesionales. La reforma amplía la cobertura de la Agencia de vigilancia sanitaria y fortalece la evaluación de tecnologías sanitarias.",
     "articulos": "Arts. 62-69",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["salud", "modernización"]
   },
   {
@@ -441,16 +453,16 @@ const DATA = [
     "descripcion": "Se ajusta el Código General del Proceso. En los procesos ordinarios comerciales entre personas jurídicas:\n• La conciliación previa podrá cumplirse ante un Centro de Mediación y Arbitraje establecido en el país\nMecanismos especializados para facilitar la resolución de controversias comerciales generan mejor clima de negocios",
     "articulos": "Art. 70",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["comercio exterior", "modernización"]
   },
   {
     "norma": "Ordenamiento territorial y autorizaciones ambientales",
     "bajada": "Se precisan los aspectos territoriales aplicables durante la Autorización Ambiental Previa.",
-    "descripcion": "Los aspectos de ordenamiento territorial que deberán considerarse para la Autorización Ambiental Previa únicamente son:\n• la categorización del suelo;\n• las restricciones de uso;\n• los usos admitidos.\nLa reforma delimita el alcance del análisis territorial dentro del procedimiento ambiental, preservando los instrumentos de ordenamiento territorial. Esto agiliza inversiones sin reducir estándares técnicos",
+    "descripcion": "Los aspectos de ordenamiento territorial que deberán considerarse para la Autorización Ambiental Previa únicamente son:\n• la categorización del suelo;\n• las restricciones de uso;\n• los usos admitidos.\nLa reforma delimita el alcance del análisis territorial dentro del procedimiento ambiental, preservando los instrumentos de ordenamiento territorial. Esto agiliza inversiones sin reducir estándares técnicos.",
     "articulos": "Art. 71",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["ambiente", "agro"]
   },
  /*  {
@@ -459,13 +471,13 @@ const DATA = [
     "descripcion": "Se deroga la Ley Nº 10.057 del 1941.\nComo consecuencia: Desaparece la prohibición legal de apertura de carnicerías los domingos.\nLa actividad continuará sometida al resto de la normativa sanitaria, laboral y comercial aplicable.\nSe eliminan restricciones comerciales cuya justificación original dejó de existir.",
     "articulos": "Art. 72",
     "capitulo": "I",
-    "area": "Modernización del Estado y simplificación regulatoria",
+    "area": "Agilización de trámites",
     "subtemas": ["consumidores", "modernización"]
   }, */
   {
     "norma": "Creación del Autodespacho Aduanero",
-    "bajada": "Se habilita una modalida alternativa para que las empresas gestionen directamente sus operaciones aduaneras.",
-    "descripcion": "Se incorpora el Autodespacho Aduanero, permitiendo que personas físicas con actividad empresarial, personas jurídicas y sociedades de hecho puedan tramitar sus propias operaciones de importación y exportación.\nPara ello:\n•Se incorpora como excepción a la intervención preceptiva del Despachante de aduana; \n•Se establecen requisitos de idoneidad técnica, solvencia y garantías para las empresas que se autodespachen; \n•Se regula el registro de autodespacho y las responsabilidades, sanciones y causales de suspensión; \n•Se mantiene un régimen equivalente de control por parte de la Dirección Nacional de Aduanas.",
+    "bajada": "Se habilita una modalida alternativa para que las empresas gestionen directamente sus operaciones aduaneras. Esta alternativa regulada tiene un impacto estimado de ~USD 25M de ahorro en operaciones de despacho",
+    "descripcion": "Se incorpora el Autodespacho Aduanero, permitiendo que personas físicas con actividad empresarial, personas jurídicas y sociedades de hecho puedan tramitar sus propias operaciones de importación y exportación.\nPara ello:\n•Se incorpora como excepción a la intervención preceptiva del despachante de aduana. \n•Se establecen requisitos de idoneidad técnica, solvencia y garantías para las empresas que se autodespachen. \n•Se regula el registro de autodespacho y las responsabilidades, sanciones y causales de suspensión. \n•Se mantiene un régimen equivalente de control por parte de la Dirección Nacional de Aduanas.",
     "articulos": "Arts. 73-81",
     "capitulo": "II",
     "area": "Facilitación del comercio exterior",
@@ -484,16 +496,16 @@ const DATA = [
   {
     "norma": "Gestión basada en análisis de riesgo",
     "bajada": "Se fortalece un modelo de control selectivo basado en análisis de riesgo.",
-    "descripcion": "La reforma incorpora tres instrumentos:\nCanal rojo: La asignación de canales de revisión aduanera deberá realizarse exclusivamente en función del análisis de riesgo.\nGestión diferencial para alimentos y bebidas: LATU podrá establecer canales preferenciales para empresas con antecedentes favorables de cumplimiento y adecuados sistemas de control.\nReconocimiento de certificaciones: El Poder Ejecutivo podrá reconocer certificaciones, registros y evaluaciones emitidas por autoridades extranjeras de referencia. Se habilitan mecanismos alternativos de acreditación y controles posteriores basados en riesgo.\nLos recursos de control se concentran en las operaciones de mayor riesgo, facilitando aquellas con mejores antecedentes de cumplimiento.",
+    "descripcion": "La reforma incorpora tres instrumentos:\n• Canal rojo: La asignación de canales de revisión aduanera deberá realizarse exclusivamente en función del análisis de riesgo.\n• Gestión diferencial para alimentos y bebidas: LATU podrá establecer canales preferenciales para empresas con antecedentes favorables de cumplimiento y adecuados sistemas de control.\n• Reconocimiento de certificaciones: El Poder Ejecutivo podrá reconocer certificaciones, registros y evaluaciones emitidas por autoridades extranjeras de referencia. Se habilitan mecanismos alternativos de acreditación y controles posteriores basados en riesgo.\nLos recursos de control se concentran en las operaciones de mayor riesgo, facilitando aquellas con mejores antecedentes de cumplimiento.",
     "articulos": "Arts. 84-86",
     "capitulo": "II",
     "area": "Facilitación del comercio exterior",
-    "subtemas": ["comercio exterior"]
+    "subtemas": ["comercio exterior", "salud"]
   },
   {
     "norma": "Agilización de procedimientos aduaneros",
     "bajada": "Se simplifican distintos procedimientos vinculados a la gestión tributaria y aduanera. Algunas medidas instrumentan anuncios de simplificación realizados en marzo.",
-    "descripcion": "Medidas:\n• Eliminación de la intervención previa de DGI para mercadería exportada que retorna;\n• Ampliación del régimen de autorevisión voluntaria;\n• Declaración de prescripción de oficio por parte de la DNA;\n• Implementación del pago diferido de tributos para operaciones de importación definitiva: régimen de mora y posibilidad de exigir garantías\nLa reforma simplifica procedimientos y mejora los mecanismos de cumplimiento voluntario dentro del sistema aduanero.",
+    "descripcion": "Medidas:\n• Eliminación de la intervención previa de DGI para mercadería exportada que retorna.\n• Ampliación del régimen de autorevisión voluntaria.\n• Declaración de prescripción de oficio por parte de la DNA.\n• Implementación del pago diferido de tributos para operaciones de importación definitiva: régimen de mora y posibilidad de exigir garantías.\nLa reforma simplifica procedimientos y mejora los mecanismos de cumplimiento voluntario dentro del sistema aduanero.",
     "articulos": "Arts. 87-91",
     "capitulo": "II",
     "area": "Facilitación del comercio exterior",
@@ -502,7 +514,7 @@ const DATA = [
   {
     "norma": "Desempapelamiento del comercio exterior",
     "bajada": "Se consolida la utilización exclusiva de documentación electrónica en las operaciones aduaneras.",
-    "descripcion": "\n• Presentación electrónica de la documentación complementaria;\n• Digitalización de documentos originalmente emitidos en papel;\n• Plena validez jurídica de la documentación electrónica;\n• Archivo exclusivamente electrónico de los antecedentes aduaneros;\n• Posibilidad de destrucción de documentación física una vez digitalizada conforme a la reglamentación.\nLa documentación electrónica pasa a constituir el soporte principal de las operaciones de comercio exterior.",
+    "descripcion": "\n• Presentación electrónica de la documentación complementaria.\n• Digitalización de documentos originalmente emitidos en papel.\n• Plena validez jurídica de la documentación electrónica.\n• Archivo exclusivamente electrónico de los antecedentes aduaneros.\n• Posibilidad de destrucción de documentación física una vez digitalizada conforme a la reglamentación.\nLa documentación electrónica pasa a constituir el soporte principal de las operaciones de comercio exterior.",
     "articulos": "Arts. 92-93",
     "capitulo": "II",
     "area": "Facilitación del comercio exterior",
@@ -511,16 +523,16 @@ const DATA = [
   {
     "norma": "Facilitación para sectores específicos",
     "bajada": "Se incorporan medidas puntuales para mejorar la competitividad preservando objetivos de interés público",
-    "descripcion": "Vehículos utilitarios usados: Se habilita la importación de determinadas categorías de vehículos pesados usados, manteniendo requisitos de seguridad y emisiones.\nPrototipado e innovación: Se amplía el régimen promocional para actividades de prototipado, incorporando nuevos bienes\nTrabajo forzoso: Se establece un marco para impedir la importación de bienes producidos mediante trabajo forzoso u obligatorio, incluido el trabajo infantil forzoso.\nLa facilitación del comercio exterior se complementa con instrumentos que promueven la innovación y preservan estándares internacionales de seguridad y derechos humanos.",
+    "descripcion": "•Vehículos utilitarios usados: Se habilita la importación de determinadas categorías de vehículos pesados usados, manteniendo requisitos de seguridad y emisiones.\n• Prototipado e innovación: Se amplía el régimen promocional para actividades de prototipado, incorporando nuevos bienes\n• Trabajo forzoso: Se establece un marco para impedir la importación de bienes producidos mediante trabajo forzoso u obligatorio, incluido el trabajo infantil forzoso.\nLa facilitación del comercio exterior se complementa con instrumentos que promueven la innovación y preservan estándares internacionales de seguridad y derechos humanos.",
     "articulos": "Arts. 94-96",
     "capitulo": "II",
     "area": "Facilitación del comercio exterior",
-    "subtemas": ["innovación", "comercio exterior"]
+    "subtemas": ["innovación", "comercio exterior", "trabajo forzoso", "innovación"]
   },
   {
     "norma": "Creación de la nueva Comisión de Promoción y Defensa de la Competencia",
     "bajada": "Se transforma la actual Comisión en un servicio descentralizado con mayor autonomía institucional.",
-    "descripcion": "Crea la Comisión de Promoción y Defensa de la Competencia (COPRODEC) como Servicio Descentralizado.\nLe otorga personalidad jurídica y autonomía técnica.\nFortalece su independencia institucional.\nAdecua su diseño a las mejores prácticas internacionales en materia de política de competencia.\nNueva estructura orgánica",
+    "descripcion": "Crea la Comisión de Promoción y Defensa de la Competencia (COPRODEC) como Servicio Descentralizado.\n• Le otorga personalidad jurídica y autonomía técnica.\n• Fortalece su independencia institucional.\n• Adecua su diseño a las mejores prácticas internacionales en materia de política de competencia.\n• Nueva estructura orgánica",
     "articulos": "Arts. 97-98",
     "capitulo": "III",
     "area": "Promoción de la competencia y reducción del costo de vida",
@@ -529,7 +541,7 @@ const DATA = [
   {
     "norma": "Gobierno de la COPRODEC",
     "bajada": "Se establece una nueva estructura de gobierno para fortalecer la independencia y profesionalización de la autoridad de competencia.",
-    "descripcion": "\n• Directorio integrado por tres miembros.\n• Designación mediante procedimiento público con Comité de Selección y venia del Senado.\n• Requisitos de experiencia, idoneidad e independencia.\n• Régimen de incompatibilidades.\n• Reglas de funcionamiento y adopción de decisiones.",
+    "descripcion": "\n• Directorio integrado por tres miembros. \n•	Designación mediante procedimiento público con Comité de Selección y venia del Senado. \n•	Atribuciones del presidente. \n•	Requisitos de experiencia, idoneidad e independencia. \n•	Régimen de incompatibilidades. \n•	Reglas de funcionamiento y adopción de decisiones. \n•	Cese y remoción \n•	Excusación y recusación \n•	Sustitución en caso de Vacancia",
     "articulos": "Arts. 99-103",
     "capitulo": "III",
     "area": "Promoción de la competencia y reducción del costo de vida",
@@ -547,7 +559,7 @@ const DATA = [
   {
     "norma": "Transición hacia la nueva institucionalidad",
     "bajada": "Se regula el pasaje desde la actual Comisión hacia el nuevo servicio descentralizado.",
-    "descripcion": "Ejes de la transición:\n• Continuidad de competencias hasta la instalación del nuevo organismo\n• Transferencia de expedientes, bienes y recursos\n• Continuidad jurídica y administrativa\n• Incorporación del personal al nuevo organismo.",
+    "descripcion": "Ejes de la transición:\n• Continuidad de competencias hasta la instalación del nuevo organismo.\n• Transferencia de expedientes, bienes y recursos.\n• Continuidad jurídica y administrativa.\n• Incorporación del personal al nuevo organismo.",
     "articulos": "Art. 107",
     "capitulo": "III",
     "area": "Promoción de la competencia y reducción del costo de vida",
@@ -565,11 +577,11 @@ const DATA = [
   {
     "norma": "Modernización del control de concentraciones económicas",
     "bajada": "Se actualiza el régimen de control previo para concentrar la intervención pública en las operaciones con mayor impacto competitivo.",
-    "descripcion": "La reforma procura que la Comisión concentre sus recursos en el análisis de las operaciones que realmente puedan afectar el funcionamiento de los mercados.\n• Redefine los umbrales de notificación obligatoria.\n• Precisa los criterios para determinar el cambio de control.\n• Ajusta las reglas para el cálculo de la facturación relevante.\n• Simplifica el procedimiento de análisis.\n• Crea una tasa destinada a financiar el sistema de control de concentraciones.",
+    "descripcion": "•La reforma procura que la Comisión concentre sus recursos en el análisis de las operaciones que realmente puedan afectar el funcionamiento de los mercados.\n• Redefine los umbrales de notificación obligatoria.\n• Precisa los criterios para determinar el cambio de control.\n• Ajusta las reglas para el cálculo de la facturación relevante.\n• Simplifica el procedimiento de análisis.\n• Crea una tasa destinada a financiar el sistema de control de concentraciones.",
     "articulos": "Arts. 111-116",
     "capitulo": "III",
     "area": "Promoción de la competencia y reducción del costo de vida",
-    "subtemas": ["competencia", "consumidores"]
+    "subtemas": ["competencia", "consumidores", "modernización"]
   },
   {
     "norma": "Modernización del régimen de prácticas anticompetitivas",
@@ -578,7 +590,7 @@ const DATA = [
     "articulos": "Arts. 117-118",
     "capitulo": "III",
     "area": "Promoción de la competencia y reducción del costo de vida",
-    "subtemas": ["competencia", "consumidores"]
+    "subtemas": ["competencia", "consumidores", "modernización"]
   },
   {
     "norma": "Fortalecimiento de las investigaciones",
@@ -610,7 +622,7 @@ const DATA = [
   {
     "norma": "Habilitación de importadores subsiguientes de un mismo producto",
     "bajada": "Se reducen barreras regulatorias para facilitar la competencia intramarca en productos regulados.",
-    "descripcion": "Se crea un procedimiento simplificado para el registro de importadores subsiguientes de un mismo producto previamente registrado.\n1. Evita duplicar información ya evaluada por la autoridad competente.\n2. Simplifica la documentación exigida.\n3. Reduce costos y tiempos de tramitación.\n4. Facilita el ingreso de nuevos oferentes.",
+    "descripcion": "Se crea un procedimiento simplificado para el registro de importadores subsiguientes de un mismo producto previamente registrado.\n1. Evita duplicar información ya evaluada por la autoridad competente.\n2. Simplifica la documentación exigida.\n3. Reduce costos y tiempos de tramitación.\n4. Facilita el ingreso de nuevos oferentes. La simplificación administrativa no modifica los estándares sanitarios, técnicos o de seguridad. \nLos registrantes subsiguientes deben garantizar la trazabilidad del lote y la autenticidad del producto. La autoridad regulatoria puede autorizar solamente procedencias que les brinden seguridad.",
     "articulos": "Art. 141",
     "capitulo": "III",
     "area": "Promoción de la competencia y reducción del costo de vida",
@@ -641,16 +653,16 @@ const DATA = [
     "articulos": "Art. 144",
     "capitulo": "III",
     "area": "Promoción de la competencia y reducción del costo de vida",
-    "subtemas": ["competencia"]
+    "subtemas": ["competencia", "marítimo"]
   },
   {
     "norma": "Información para el consumidor: precios por unidad de medida",
-    "bajada": "Se mejora la información disponible para los consumidores mediante la exhibición obligatoria del precio por unidad de medida.",
+    "bajada": "Mejora la información disponible para los consumidores mediante la exhibición obligatoria del precio por unidad de medida.",
     "descripcion": "Las grandes superficies comerciales y los supermercados con dos o más cajas fijas habilitadas para recibir pagos deberán exhibir, junto con el precio de venta, el precio por unidad de medida (kilogramo, litro, metro, unidad).\nLa obligación también alcanzará al comercio electrónico.\nLa exhibición uniforme facilita la comparación entre productos de distinto tamaño o presentación, mejora la transparencia y promueve decisiones de compra más informadas.\nLa Unidad de Defensa del Consumidor del MEF será el organismo encargado de la fiscalización.",
     "articulos": "Arts. 145-148",
     "capitulo": "III",
     "area": "Promoción de la competencia y reducción del costo de vida",
-    "subtemas": ["consumidores"]
+    "subtemas": ["consumidores",]
   },
   {
     "norma": "Fortalecimiento de las micro, pequeñas y medianas empresas",
@@ -673,16 +685,16 @@ const DATA = [
   {
     "norma": "Fondos de Inversión Cerrados Promovidos",
     "bajada": "Se crea un nuevo vehículo de inversión destinado a canalizar ahorro hacia el financiamiento de actividades productivas en Uruguay.",
-    "descripcion": "La reforma crea los Fondos de Inversión Cerrados Promovidos, orientados al financiamiento de proyectos productivos mediante instrumentos de largo plazo.\nLa reforma procura canalizar el ahorro hacia la inversión productiva, ampliar las fuentes de financiamiento de largo plazo y profundizar el mercado de capitales uruguayo.",
+    "descripcion": "Estos fondos podrán invertir, entre otros activos, en: \n• Préstamos de mediano y largo plazo. \n• Títulos de deuda emitidos por empresas residentes. \n• Participaciones patrimoniales en empresas uruguayas. \n• Otros activos vinculados al financiamiento de actividades económicas radicadas en el país. \nAsimismo, el proyecto: \n• Establece un régimen tributario específico para estos fondos. \n• Moderniza la Ley de Fondos de Inversión, ampliando los activos elegibles y flexibilizando su estructura jurídica y operativa.",
     "articulos": "Arts. 164-183",
     "capitulo": "IV",
     "area": "Innovación y aceleración de la inversión",
     "subtemas": ["innovación", "fintech"]
-  },
+  }, 
   {
     "norma": "Finanzas Abiertas",
     "bajada": "Marco legal para que personas y empresas puedan compartir información financiera de forma segura y voluntaria, facilitando el acceso a nuevos productos y servicios financieros.",
-    "descripcion": "El proyecto establece los principios generales del sistema de Finanzas Abiertas, promoviendo un ecosistema financiero más competitivo, innovador e interoperable.\nLas Finanzas Abiertas permiten que la información financiera deje de estar cautiva en una única institución y pueda utilizarse, con autorización del usuario, para acceder a mejores productos, mejores condiciones de financiamiento y nuevos servicios financieros.",
+    "descripcion": "Los clientes serán titulares y podrán autorizar el intercambio de su información financiera. \n Las entidades participantes deberán compartir la información mediante interfaces estandarizadas, con el consentimiento del usuario. \n El intercambio deberá realizarse bajo estándares de seguridad, confidencialidad y protección de datos personales. \n El BCU reglamentará el funcionamiento del sistema, los participantes, los estándares técnicos y las condiciones de acceso. ",
     "articulos": "Arts. 184-204",
     "capitulo": "IV",
     "area": "Innovación y aceleración de la inversión",
@@ -697,11 +709,10 @@ const DATA = [
     "area": "Innovación y aceleración de la inversión",
     "subtemas": ["innovación", "fintech"]
   },
-  {
+ {
     "norma": "Financiamiento de la innovación",
     "bajada": "Se fortalecen los instrumentos públicos y privados para financiar proyectos de innovación y atraer inversión de largo plazo.",
-    "descripcion": "Tres medidas principales:\n• Régimen de impatriados (Art. 210)\n• Proyectos Integrales de Innovación e Inversión (Art. 211)\n• Ampliación de gastos promovidos de I+D (Art. 212)\nLa reforma procura canalizar el ahorro hacia la inversión productiva, ampliar las fuentes de financiamiento de largo plazo y profundizar el mercado de capitales uruguayo.",
-    "articulos": "Arts. 210-212",
+    "descripcion": "Régimen de impatriados: \n• Amplía las alternativas de inversión hacia proyectos productivos, de investigación e innovación \n• Habilita donaciones a entidades sin fines de lucro que desarrollen proyectos culturales, educativos, científicos, tecnológicos o de innovación. \n Proyectos Integrales de Innovación e Inversión: \n• Integra en un único proceso los instrumentos de  ANII, COMAP y otros organismos \n• Permite una evaluación coordinada de proyectos de mayor escala. \n Ampliación de gastos promovidos de I+D:\n• Incorpora como gastos elegibles el uso de laboratorios, plantas piloto e infraestructura científico-tecnológica especializada. ",
     "capitulo": "IV",
     "area": "Innovación y aceleración de la inversión",
     "subtemas": ["innovación", "fintech"]
@@ -744,7 +755,7 @@ const DATA = [
   }
 ]
 const CAP_TITLES = {
-  I:'Modernización del Estado y simplificación regulatoria',
+  I:'Agilización de trámites',
   II:'Facilitación del comercio exterior',
   III:'Promoción de la competencia y reducción del costo de vida',
   IV:'Innovación y aceleración de la inversión'
@@ -958,4 +969,3 @@ render();
 </script>
 </body>
 </html>
-
